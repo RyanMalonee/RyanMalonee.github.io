@@ -1,5 +1,5 @@
 body{
-    background: teal;
+    background: #93c0af;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -8,14 +8,28 @@ body{
     padding: 10px;
     margin: 10px;
     background: lightgray;
+    border-radius: 7px;
 }
 
 .assignment img{
     width:250px;
-    padding:10px;
+    margin:10px;
+    border:3px solid #688459;
+}
+
+.assignment img:hover {
+    border:3px solid #93c0af;
 }
 
 h1{
-    color: lightcoral;
+    color: #344038;
     text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #688459;
+}
+a:hover {
+    color:#93c0af
 }
