@@ -2,6 +2,8 @@
 
 body {
   background: #f1e6e7;
+  width: 80%;
+  margin: auto;
 }
 
 #main-header {
@@ -32,8 +34,9 @@ body {
 
 .empty-space-box {
   height:100px;
-  width:300px;
+  width:320px;
   text-align: center;
+  margin: auto;
 }
 
 #main-footer {
@@ -53,11 +56,12 @@ body {
 }
 
 /* Main Navigation */
-#main-header ul {
+#main-nav ul {
   padding-left: 0px;
+  text-align: center;
 }
 
-#main-header li {
+#main-nav li {
   list-style-type: none;
   padding: 5px;
   background-color: #e3ccce;
@@ -96,6 +100,10 @@ body {
 }
 
 #main-footer p {
+  text-align: center;
+}
+
+.nested-columns {
   text-align: center;
 }
 
