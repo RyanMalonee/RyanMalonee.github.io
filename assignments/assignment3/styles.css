@@ -107,6 +107,10 @@ body {
   text-align: center;
 }
 
+#main-nav li {
+  font-size: 1.1em;
+}
+
 
 /* Larger Resolutions */
 @media only screen and (min-width: 320px) {
