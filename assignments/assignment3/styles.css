@@ -4,6 +4,7 @@ body {
   background: #f1e6e7;
   width: 80%;
   margin: auto;
+  min-width: 320px;
 }
 
 #main-header {
@@ -33,10 +34,13 @@ body {
 }
 
 .empty-space-box {
-  height:100px;
-  width:320px;
   text-align: center;
-  margin: auto;
+}
+
+.empty-space-box img {
+  width: 320px; 
+  height: 100px;
+  margin: 5px auto;
 }
 
 #main-footer {
@@ -136,6 +140,7 @@ body {
   .nested-columns {
     flex: 1;
   }
+  
   .empty-space-box {
     flex: 1;
   }
