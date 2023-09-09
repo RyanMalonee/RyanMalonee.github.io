@@ -1,0 +1,172 @@
+/* Structure */
+body{
+  margin: 0px;
+}
+
+#user-nav {
+padding:1px;
+}
+
+#main-header {
+  background: black;
+}
+
+#logo-search input{
+  height: 30px;
+  width: 189px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+.inline {
+  display: inline-block;
+  padding: 10px;
+  background-color:#73000A;
+}
+
+#landing-image {
+  width: 100%;
+}
+
+#remarkable-research {
+  background-color: #73000A;
+}
+
+#remarkable-research img {
+  max-width:100%;
+}
+
+
+/* Horizontal Navigation */
+.horizontal-nav ul {
+  padding-left: 0px;
+}
+
+.horizontal-nav li {
+  list-style-type: none;
+  margin: 0 5px;
+}
+
+
+/* Navigation */
+#main-nav {
+  text-align: center;
+  background-color: #73000A;
+  padding: 1px;
+}
+
+#main-nav ul {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#main-nav li {
+  margin: 0 2px;
+}
+
+
+/* Typography */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#user-nav {
+  font-size: xx-small;
+}
+
+#user-nav a {
+  color: white;
+}
+
+#label {
+  color: white;
+}
+
+#logo-search input {
+  color: white;
+}
+
+.horizontal-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main h1 {
+  color: white;
+}
+
+#remarkable-research {
+  color: white;
+}
+
+#remarkable-research h1 {
+  font-family: serif;
+  font-size: 2.7em;
+}
+
+#remarkable-research p {
+  font-size: 1.1em;
+}
+
+
+/* Larger Resolutions */
+@media only screen and (min-width:768px) {
+  .horizontal-nav ul, .flex-container {
+  display: flex;
+  }
+
+  #user-nav ul {
+    position: relative;
+    top: 0%;
+    left:45%;
+  }
+
+  #main-nav li {
+    flex: 1;
+  }
+
+  #logo-search {
+    padding: 5px;
+    justify-content: space-between;
+    margin: 10px 10%;
+  }
+
+  .padding-right{
+    padding-right:20px;
+  }
+
+  #landing h1 {
+    margin-top: -40px;
+    margin-left: 10%;
+    font-size: 3em;
+  }
+
+  #landing p {
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 1.1em;
+  }
+
+  #remarkable-research img {
+    flex:6;
+    height: 400px;
+  }
+
+  #column {
+    flex: 4;
+    flex-direction: column;
+  }
+
+  #remarkable-research #column {
+    justify-content:flex-end;
+    padding-left:20px;
+    margin-right: 7%;
+  }
+  
+  
+}
