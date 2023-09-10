@@ -29,7 +29,7 @@ body{
   width: 100%;
 }
 
-#new-understanding button:hover, #overcoming-barriers button:hover {
+#new-understanding button:hover, #overcoming-barriers button:hover, #investing-in-research button:hover, #office-vp button:hover {
   background-color: white;
   color:#73000A;
   border: 2px solid #73000A;
@@ -39,7 +39,7 @@ body{
   background-color: #73000A;
 }
 
-#remarkable-research img, #overcoming-barriers img, #new-understanding img {
+#remarkable-research img, #overcoming-barriers img, #new-understanding img, #breakthrough img, #leading-edge img, #office-vp img {
   max-width:100%;
 }
 
@@ -54,17 +54,17 @@ body{
   width: fit-content;
 }
 
-#new-understanding {
+#new-understanding, #investing-in-research, #office-vp {
   background-color: #ECECEC;
 }
 
-#new-understanding button {
+#new-understanding button, #investing-in-research button, #office-vp button {
   background-color: #73000A;
   padding: 20px;
   width: fit-content;
 }
 
-#column2 {
+.column2 {
   padding: 15px;
   justify-content: center;
   margin-left: 3%;
@@ -75,7 +75,6 @@ body{
   margin-bottom:1%;
   margin-top: 1%;
   margin-right: 1%;
-
 }
 
 #column3 {
@@ -98,6 +97,126 @@ body{
   width: 300px;
 }
 
+#more-research-stories {
+  position: absolute;
+  right: 5%;
+}
+
+#breakthrough {
+  background: #570008;
+  margin-top: 75px;
+}
+
+#breakthrough button, #better-world button {
+  background: black;
+  padding: 20px;
+  width: fit-content;
+  border: 3px solid white;
+}
+
+#breakthrough button:hover, #better-world button:hover {
+  background-color: white;
+  color:#73000A;
+}
+
+#breakthrough button, #breakthrough h1, #breakthrough p {
+  position: relative;
+  top: 25%;
+}
+
+
+#investing-in-research #column3 {
+  margin-left: 8%;
+}
+
+#investing-in-research img {
+  margin-right: 10%;
+  margin-bottom:1%;
+  margin-top: 1%;
+  margin-left: 10%;
+}
+
+#leading-edge {
+  background: #1E414D;
+}
+
+#leading-edge button {
+  background: #73000A;
+  padding: 20px;
+  width: fit-content;
+  border: 3px solid white;
+}
+
+#leading-edge button:hover {
+  background-color: white;
+  color:#73000A;
+  border: 3px solid #73000A;
+}
+
+#better-world {
+  background-image: url('https://place-hold.it/800x500/cec8c8');
+  width: 100%;
+  height: 700px
+}
+
+#better-world h1 {
+  margin:0px;
+}
+
+#text {
+  background-color: #73000A;
+  position:relative;
+  top: 1%;
+  margin: 0 10px;
+}
+
+#better-world h1, #better-world p, #better-world button {
+  position: relative;
+  top: 25%;
+  left: 2px;
+  padding-right: 2px;
+  padding-left:2px;
+}
+
+#office-vp h1, #office-vp p, #office-vp button {
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
+#main-footer {
+  background:#73000A;
+}
+
+#logo-links li {
+  list-style: none;
+}
+
+#link-holder {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#logo-links {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+#link-holder li {
+  list-style-type: none;
+}
+
+#bottom-bar {
+  background: black;
+}
+
+#bottom-bar p {
+  padding: 1px;
+  position: relative;
+  left: 10%;
+}
 
 /* Horizontal Navigation */
 .horizontal-nav ul {
@@ -106,7 +225,8 @@ body{
 
 .horizontal-nav li {
   list-style-type: none;
-  margin: 0 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 
@@ -155,11 +275,11 @@ body {
   font-size: 2.7em;
 }
 
-#overcoming-barriers h1, #new-understanding h1 {
+#overcoming-barriers h1, #new-understanding h1, #breakthrough h1, #leading-edge h1 {
   font-size: 2.7em;
 }
 
-#remarkable-research p, #overcoming-barriers p{
+#remarkable-research p, #overcoming-barriers p, #breakthrough p, #leading-edge p {
   font-size: 1.1em;
 }
 
@@ -168,12 +288,12 @@ body {
   font-size: 1.4em;
 }
 
-#new-understanding button {
+#new-understanding button, #investing-in-research button, #office-vp button {
   color: white;
   font-size: 1.4em;
 }
 
-#new-understanding h1, .col1of4 h3, #research-spots h1 {
+#new-understanding h1, .col1of4 h3, #research-spots h1, #investing-in-research h1, #office-vp h1 {
   color:#73000A;
 }
 
@@ -182,6 +302,59 @@ body {
   color: black;
 }
 
+#research-spots h1 {
+  font-size: 2.7em;
+  font-family: serif;
+  text-align: center;
+}
+
+#more-research-stories {
+  color: #73000A !important;
+}
+
+#breakthrough, #leading-edge {
+  color: white;
+}
+
+#breakthrough button, #leading-edge button, #better-world button {
+  color: white;
+  font-size: 1.4em;
+}
+
+#text h1, #text p, #text button {
+  color: white;
+}
+
+#office-vp h1 {
+  font-size: 2.7em;
+}
+
+#office-vp a {
+  color: #73000A;
+}
+
+#link-holder a {
+  color: white;
+  text-decoration: none;
+}
+
+#link-holder {
+  color: white;
+  font-weight:100;
+}
+
+#link-holder ul {
+  padding: 10px;
+}
+
+.underline {
+  border-bottom: 2px solid white;
+}
+
+#bottom-bar p {
+  color: white;
+  font-size: 10px;
+}
 
 /* Larger Resolutions */
 @media only screen and (min-width:768px) {
@@ -244,7 +417,7 @@ body {
     overflow:hidden;
   }
 
-  #column2, #column3 {
+  .column2, #column3 {
     flex:1;
     flex-direction: column;
   }
@@ -262,8 +435,30 @@ body {
   .col1of4 {
     margin: 20px;
   }
-  
 
-  
+  #investing-in-research img {
+    margin-right: 10%;
+    margin-bottom:1%;
+    margin-top: 1%;
+    margin-left: 1%;
+  }
+
+  #text {
+    max-width: 40%;
+    width: fit-content;
+    height: 40%;
+    position: relative;
+    top: 35%;
+    left: 5%;
+  }
+
+  #office-vp .column2 {
+    margin-right: 50%;
+  }
+
+  #logo-links {
+    position: absolute;
+    right: 5%;
+  }
   
 }
