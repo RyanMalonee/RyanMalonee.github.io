@@ -1,10 +1,11 @@
 /* Structure */
 body{
   margin: 0px;
+  max-width:100%;
 }
 
 #user-nav {
-padding:1px;
+  padding:1px;
 }
 
 #main-header {
@@ -28,12 +29,73 @@ padding:1px;
   width: 100%;
 }
 
+#new-understanding button:hover, #overcoming-barriers button:hover {
+  background-color: white;
+  color:#73000A;
+  border: 2px solid #73000A;
+}
+
 #remarkable-research {
   background-color: #73000A;
 }
 
-#remarkable-research img {
+#remarkable-research img, #overcoming-barriers img, #new-understanding img {
   max-width:100%;
+}
+
+#overcoming-barriers {
+  background: black;
+}
+
+#overcoming-barriers button {
+  background-color: #73000A;
+  border: 2px solid white;
+  padding: 10px;
+  width: fit-content;
+}
+
+#new-understanding {
+  background-color: #ECECEC;
+}
+
+#new-understanding button {
+  background-color: #73000A;
+  padding: 20px;
+  width: fit-content;
+}
+
+#column2 {
+  padding: 15px;
+  justify-content: center;
+  margin-left: 3%;
+}
+
+#new-understanding img {
+  margin-left: 10%;
+  margin-bottom:1%;
+  margin-top: 1%;
+  margin-right: 1%;
+
+}
+
+#column3 {
+  margin-left: 2%;
+  margin-right: 10%;
+  justify-content: center;
+}
+
+#research-spots {
+  background-color: #FFFFFF;
+}
+
+.col1of4:hover {
+  background-color: #F0F0F0;
+}
+
+#research-spots .flex-container {
+  margin-left:auto;
+  margin-right:auto;
+  width: 300px;
 }
 
 
@@ -79,15 +141,7 @@ body {
   font-size: xx-small;
 }
 
-#user-nav a {
-  color: white;
-}
-
-#label {
-  color: white;
-}
-
-#logo-search input {
+#label, #logo-search input, #user-nav a, main h1, #remarkable-research, #overcoming-barriers {
   color: white;
 }
 
@@ -96,21 +150,36 @@ body {
   text-decoration: none;
 }
 
-main h1 {
-  color: white;
-}
-
-#remarkable-research {
-  color: white;
-}
-
 #remarkable-research h1 {
   font-family: serif;
   font-size: 2.7em;
 }
 
-#remarkable-research p {
+#overcoming-barriers h1, #new-understanding h1 {
+  font-size: 2.7em;
+}
+
+#remarkable-research p, #overcoming-barriers p{
   font-size: 1.1em;
+}
+
+#overcoming-barriers button {
+  color: white;
+  font-size: 1.4em;
+}
+
+#new-understanding button {
+  color: white;
+  font-size: 1.4em;
+}
+
+#new-understanding h1, .col1of4 h3, #research-spots h1 {
+  color:#73000A;
+}
+
+#research-spots a {
+  text-decoration: none;
+  color: black;
 }
 
 
@@ -153,8 +222,8 @@ main h1 {
   }
 
   #remarkable-research img {
-    flex:6;
-    height: 400px;
+    flex: 6;
+    height: 600px;
   }
 
   #column {
@@ -167,6 +236,34 @@ main h1 {
     padding-left:20px;
     margin-right: 7%;
   }
+
+  #overcoming-barriers {
+    flex: 1;
+    min-width:0;
+    min-height:0;
+    overflow:hidden;
+  }
+
+  #column2, #column3 {
+    flex:1;
+    flex-direction: column;
+  }
+
+  #new-understanding {
+    flex: 1;
+  }
+
+  #research-spots .flex-container {
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: space-between;
+  }
+
+  .col1of4 {
+    margin: 20px;
+  }
+  
+
   
   
 }
