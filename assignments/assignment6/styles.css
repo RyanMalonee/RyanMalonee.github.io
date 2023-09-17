@@ -55,15 +55,12 @@
     left: 0%;
   }
   25% { 
-    top: 25%;
-    left: 25%;
-  }
-  50% {
-    top: 50%;
+    top: 35%;
     left: 50%;
+    color: white;
   }
   75% { 
-    top: 25%;
+    top: 0%;
     left: 75%;
   }
   100% { 
