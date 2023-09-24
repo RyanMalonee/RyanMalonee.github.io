@@ -15,6 +15,10 @@ body {
   margin-right: auto;
 }
 
+.empty {
+  visibility: hidden;
+}
+
 /* Navigation */
 a {
   text-decoration: none;
