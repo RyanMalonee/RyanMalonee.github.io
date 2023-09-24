@@ -48,6 +48,7 @@ body {
 
 #oldest-form label, #oldest-form input {
   display: block;
+  margin-left: 20px;
 }
 
 #oldest-form label {
