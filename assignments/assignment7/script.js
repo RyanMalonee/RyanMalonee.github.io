@@ -13,8 +13,9 @@ const sortAge = () => {
   let results = "Oldest to youngest: ";
   /* Checks for errors and displays error message if there is one
      If there are no errors, it will compare each age and order the
-     names from oldest to youngest */
-  if(age1 == NaN || age2 == NaN || age3 == NaN || age1 < 0
+     names from oldest to youngest
+     - Found isNaN() on w3schools.com to check if empty input was entered */
+  if(isNaN(age1) || isNaN(age2) || isNaN(age3) || age1 < 0
     || age2 < 0 || age3 < 0 || name1 == "" || name2 == ""
     || name3 == "") {
     results += "Invalid Information"
@@ -47,8 +48,10 @@ const fundraisingGoal = () => {
   const goal = 10000;
   const raised = parseInt(document.getElementById("money-raised").value);
   const root = document.querySelector(":root");
-
-  if(raised/goal < .5) {
+  // Found isNaN() on w3schools.com to check if an empty input was entered
+  if(isNaN(raised) || raised < 0) {
+    root.style.setProperty("--num", "0%");
+  } else if(raised/goal < .5) {
     root.style.setProperty("--num", "25%");
   } else if(raised/goal >= .5 && raised/goal < .75) {
     root.style.setProperty("--num", "50%");
@@ -57,7 +60,6 @@ const fundraisingGoal = () => {
   } else {
     root.style.setProperty("--num", "100%");
   }
-
 }
 
 const switchExerciseTo1 = () => {
