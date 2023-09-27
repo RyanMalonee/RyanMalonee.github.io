@@ -1,6 +1,7 @@
 /* Structure */
 :root {
   --position: 0%;
+  --fill: 0%;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
   margin: 10px;
   margin-left:auto;
   margin-right:auto;
+  background: linear-gradient(0deg, pink var(--fill), white var(--fill) 100%);
 }
 
 #running-man, #fund-raising {

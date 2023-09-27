@@ -20,7 +20,28 @@ const moveMan = () => {
   }, 190);
 }
 
+const moveThermometer = () => {
+  let fill = 0;
+  const goal = 10000;
+  const raised = parseInt(document.getElementById("money-raised").value);
+  const root = document.querySelector(":root");
+  
+  // Adds a percent to the background every 50 milisecs
+  const updateTherm = setInterval(() => {
+    if(raised <= 0 || isNaN(raised)) {
+      clearInterval(updateTherm);
+    } else {
+    fill += 1;
+    }
+    root.style.setProperty("--fill", fill + "%");
+    if(fill >= 100 || fill >= raised/goal * 100) {
+      clearInterval(updateTherm);
+    }
+  } , 20);
+}
+
 
 window.onload = () => {
   document.getElementById("walking-img").onclick = moveMan;
+  document.getElementById("fund-raising-button").onclick = moveThermometer;
 }
