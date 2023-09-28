@@ -7,16 +7,13 @@ body {
   background: #e3ccce;
   margin: 15px;
   border-radius: 3px;
+  padding: 5px;
 }
 
 .column img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.empty {
-  visibility: hidden;
 }
 
 /* Navigation */
@@ -69,6 +66,7 @@ body {
 }
 
 .column {
-  flex: 1;
+  flex: 22%;
+  flex-grow: 0;
 }
 }
