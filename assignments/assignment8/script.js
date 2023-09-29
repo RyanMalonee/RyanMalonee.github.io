@@ -9,7 +9,7 @@ const moveMan = () => {
     if(width >= 75) {
       clearInterval(updatePosition);
     }
-  }, 10);
+  }, 30);
 
   const changeMan = setInterval(() => {
     document.getElementById("walking-img").classList.toggle("hidden");
@@ -17,7 +17,7 @@ const moveMan = () => {
     if(width >= 75) {
       clearInterval(changeMan);
     }
-  }, 190);
+  }, 400);
 }
 
 const moveThermometer = () => {
@@ -43,5 +43,6 @@ const moveThermometer = () => {
 
 window.onload = () => {
   document.getElementById("walking-img").onclick = moveMan;
+  document.getElementById("running-img").onclick = moveMan;
   document.getElementById("fund-raising-button").onclick = moveThermometer;
 }
