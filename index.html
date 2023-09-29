@@ -1,62 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Ryan Malone</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header id="main-header">
-            <h1>CSCE 242: Client Server Computing</h1>
-            <h2>Ryan Malone</h2>
-        </header>
-        <main id="main-content">
-            <h2 id="assignment-label">Assignments:</h2>
-            <div class="flex-container">
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment1/index.html"><h3>Assignment 1 - Basic HTML</h3></a>
-                    </header>
-                    <a href="assignments/assignment1/index.html"><img src="images/assignment1.png" alt="Picture of Assignment 1"></a>
-                    <p>This assignment consisted of us configuring our website to show the name of the class, our names, a class description, and a list of our assignments.</p>
-                </section>
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment2/index.html"><h3>Assignment 2 - Basic CSS</h3></a>
-                    </header>
-                    <a href="assignments/assignment2/index.html"><img src="images/assignment2.png" alt="Picture of Assignment 2"></a>
-                    <p>In this assignment, we begin to style our main page and the assignment 2 page using CSS. We modified colors, fonts, background, etc. using CSS.</p>
-                </section>
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment3/index.html"><h3>Assignment 3 - Page Layout</h3></a>
-                    </header>
-                    <a href="assignments/assignment3/index.html"><img src="images/assignment3.png" alt="Picture of Assignment 3"></a>
-                    <p>In this assignment we began to explore how CSS can be used to change the layout of the page. We also explored Flex Boxes.</p>
-                </section>
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment5/index.html"><h3>Assignment 5 - Recreate CSS Page</h3></a>
-                    </header>
-                    <a href="assignments/assignment5/index.html"><img src="images/assignment5.png" alt="Picture of Assignment 5"></a>
-                    <p>This assignment required us to recreate a webpage that was given to us. We had to try and match the same styling elements from the original page.</p>
-                </section>
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment6/index.html"><h3>Assignment 6 - JavaScript, Buttons, Functions, and more.</h3></a>
-                    </header>
-                    <a href="assignments/assignment6/index.html"><img src="images/assignment6.png" alt="Picture of Assignment 6"></a>
-                    <p>This assignment required us to begin implementing buttons and functions using javascript, css, and html.</p>
-                </section>
-                <section class="column">
-                    <header>
-                        <a href="assignments/assignment7/index.html"><h3>Assignment 7 - Conditionals</h3></a>
-                    </header>
-                    <a href="assignments/assignment7/index.html"><img src="images/assignment7.png" alt="Picture of Assignment 7"></a>
-                    <p>This assignment consisted of creating 2 pages using one index.html file. The page contained two exercises (an age comparison tool and a donation goal chart). We then used javascript to make the 2 exercises work and to show only one exercise at a time.</p>
-                </section>
-            </div>
-        </main>
-        <footer id="main-footer">
-        </footer>
-    </body>
+<head>
+  <title>Ryan Malone</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="main-header">
+    <h1>CSCE 242: Client Server Computing</h1>
+    <h2>Ryan Malone</h2>
+    <nav id="main-nav">
+      <div id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="nav-items" class="flex-container hide">
+        <li id="assignments-tab" class="bottom-border">Assignments</li>
+        <li id="project-tab">Project</li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <div id="assignment-section">
+      <h2 id="assignment-label">Assignments:</h2>
+      <div id="Assignments" class="flex-container">
+        <section class="column">
+          <header>
+            <a href="assignments/assignment1/index.html"><h3>Assignment 1 - Basic HTML</h3></a>
+          </header>
+          <a href="assignments/assignment1/index.html"><img src="images/assignment1.png" alt="Picture of Assignment 1"></a>
+          <p>This assignment consisted of us configuring our website to show the name of the class, our names, a class description, and a list of our assignments.</p>
+        </section>
+        <section class="column">
+          <header>
+            <a href="assignments/assignment2/index.html"><h3>Assignment 2 - Basic CSS</h3></a>
+          </header>
+          <a href="assignments/assignment2/index.html"><img src="images/assignment2.png" alt="Picture of Assignment 2"></a>
+          <p>In this assignment, we begin to style our main page and the assignment 2 page using CSS. We modified colors, fonts, background, etc. using CSS.</p>
+        </section>
+        <section class="column">
+          <header>
+            <a href="assignments/assignment3/index.html"><h3>Assignment 3 - Page Layout</h3></a>
+          </header>
+          <a href="assignments/assignment3/index.html"><img src="images/assignment3.png" alt="Picture of Assignment 3"></a>
+          <p>In this assignment we began to explore how CSS can be used to change the layout of the page. We also explored Flex Boxes.</p>
+        </section>
+        <section class="column">
+          <header>
+            <a href="assignments/assignment5/index.html"><h3>Assignment 5 - Recreate CSS Page</h3></a>
+          </header>
+          <a href="assignments/assignment5/index.html"><img src="images/assignment5.png" alt="Picture of Assignment 5"></a>
+          <p>This assignment required us to recreate a webpage that was given to us. We had to try and match the same styling elements from the original page.</p>
+        </section>
+        <section class="column">
+          <header>
+            <a href="assignments/assignment6/index.html"><h3>Assignment 6 - JavaScript, Buttons, Functions, and more.</h3></a>
+          </header>
+          <a href="assignments/assignment6/index.html"><img src="images/assignment6.png" alt="Picture of Assignment 6"></a>
+          <p>This assignment required us to begin implementing buttons and functions using javascript, css, and html.</p>
+        </section>
+        <section class="column">
+          <header>
+            <a href="assignments/assignment7/index.html"><h3>Assignment 7 - Conditionals</h3></a>
+          </header>
+          <a href="assignments/assignment7/index.html"><img src="images/assignment7.png" alt="Picture of Assignment 7"></a>
+          <p>This assignment consisted of creating 2 pages using one index.html file. The page contained two exercises (an age comparison tool and a donation goal chart). We then used javascript to make the 2 exercises work and to show only one exercise at a time.</p>
+        </section>
+      </div>
+    </div>
+    <div id="project-section" class="hide-section">
+      <h2 id="assignment-label">Project:</h2>
+      <div id="projects" class="flex-container">
+        <section class="column">
+          <header>
+            <a href="project/Topic Selection - Ryan Malone.pdf"><h3>Topic Selection</h3></a>
+          </header>
+          <a href="project/Topic Selection - Ryan Malone.pdf"><img src="images/topic-selection.png" alt="Picture of Topic Selection Document"></a>
+          <p>This is the description of what my project topic is about, how my website will be laid out, and what data I will store on the website.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer id="main-footer">
+  </footer>
+  <script src="script.js"></script>
+</body>
 </htmL>
