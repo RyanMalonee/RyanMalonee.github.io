@@ -6,7 +6,7 @@ const moveMan = () => {
     width += 1;
     document.getElementById("walking-img").style.setProperty("--position", width + "%");
     document.getElementById("running-img").style.setProperty("--position", width + "%");
-    if(width >= 75) {
+    if(width >= 70) {
       clearInterval(updatePosition);
     }
   }, 30);
@@ -14,7 +14,7 @@ const moveMan = () => {
   const changeMan = setInterval(() => {
     document.getElementById("walking-img").classList.toggle("hidden");
     document.getElementById("running-img").classList.toggle("hidden");
-    if(width >= 75) {
+    if(width >= 70) {
       clearInterval(changeMan);
     }
   }, 400);
