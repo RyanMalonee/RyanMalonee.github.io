@@ -15,35 +15,33 @@ header {
 header img {
   margin: 10px;
 }
-  /* Main content Structure */
-#slideshow-container img{
-  width: 100%;
-}
 
-#delaware-intro, #navigating-the-state {
+#delaware-history {
   max-width: 100%;
 }
 
-#delaware-intro img, #navigating-the-state img {
+#delaware-history img {
   width: 100%;
 }
 
-#delaware-intro p, #delaware-intro h2, #navigating-the-state p,
-#navigating-the-state h2 {
+#delaware-history p, #delaware-history h1, #landscape p, #landscape h1 {
+  padding: 0 10px;
+}
+
+#fun-facts, #delaware-history {
+  background: #EBF1F7;
+}
+
+#fun-facts section {
+  background: white;
+  margin: 5px 10px 15px 10px;
   padding: 10px;
+  text-align: center;
 }
 
-#delaware-intro button {
-  position: relative;
-  left: 50px;
-  padding: 7px 10px;
-  background: #0177B6;
-  color: white;
-  border-radius: 1px;
-}
-
-#delaware-intro button:hover {
-  background: #959595;
+#fun-facts h1 {
+  text-align: center;
+  padding-top: 5px;
 }
 
 /* Footer */
@@ -110,41 +108,56 @@ header h2 {
   font-size: 1.2em;
 }
 
-#delaware-intro p{
-  font-size: 1.1em;
+.bold {
+  font-weight: bold;
 }
+
+h1 {
+  font-size: 1.9em;
+}
+
+#footer-info {
+  /* TODO See if this is okay */
+  display: flex;
+  justify-content: space-between;
+ }
 
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
- .flex-container {
-  display: flex;
- }
+  .flex-container {
+    display: flex;
+   }
+  
+   #nav-items a {
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+   }
+  
+   #hamburger {
+    display: none;
+   }
+  
+   header h2 {
+    position: relative;
+    top: 15px;
+   }
+  
+   .column {
+    flex: 6;
+   }
+  
+   .column2 {
+     flex: 4;
+   }
 
- #nav-items a {
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
- }
+   .column-split {
+    flex: 1;
+   }
 
- #hamburger {
-  display: none;
- }
-
- header h2 {
-  position: relative;
-  top: 15px;
- }
-
- .column {
-  flex: 6;
- }
-
- .column2 {
-   flex: 4;
- }
-
- #footer-info {
-  justify-content: space-between;
- }
+   #fun-facts .flex-container {
+    width: 80%;
+    margin: auto;
+   }
 }
