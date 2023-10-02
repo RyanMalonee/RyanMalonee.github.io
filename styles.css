@@ -38,6 +38,7 @@ body {
 
 #main-nav li:hover {
   background-color: #B9AEA8;
+  cursor: pointer;
 }
 
 #main-nav .bottom-border {
