@@ -3,6 +3,7 @@ body {
   margin: 0;
   background: #F5F5F5;
   z-index: 0;
+  max-width: 100%;
 }
 
 header {
@@ -21,12 +22,8 @@ header img {
   width: 100%;
 }
 
-#delaware-intro, #navigating-the-state {
+img {
   max-width: 100%;
-}
-
-#delaware-intro img, #navigating-the-state img {
-  width: 100%;
 }
 
 #delaware-intro p, #delaware-intro h2, #navigating-the-state p,
@@ -51,12 +48,10 @@ header img {
   max-width: 100%;
 }
 
-#delaware-history img {
+#delaware-history img, #about-info img {
   width: 100%;
-  margin-right: 2%;
   margin-bottom:1%;
   margin-top: 1%;
-  margin-left: 1%;
 }
 
 #delaware-history p, #delaware-history h1, #landscape p, #landscape h1 {
@@ -132,18 +127,56 @@ header img {
   margin: auto;
 }
 
-#activity-container {
+#activity-container, #picture-container {
   position: absolute;
   z-index: 1;
   background-color: white;
   width: 100%;
 }
 
-#x-button {
+#x-button, #x-button-pic {
   z-index: 2;
   position: absolute;
   top: 2%;
   left: 95%;
+}
+
+#pictures {
+  background: #EBF1F7;
+  max-width: 100%;
+}
+
+#pictures img:not(#big-pic) {
+  margin-bottom: 10px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#sussex-county, #kent-county, #new-castle-county {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+#new-castle-county {
+  margin-bottom: 10px;
+}
+
+#big-pic {
+  max-width: 100%;
+  margin: auto;
+}
+
+#about-info {
+  background-color: #EFEFEF;
+}
+
+#about-info p {
+  padding: 10px;
 }
 
 
@@ -239,6 +272,14 @@ h1 {
   text-align: center;
 }
 
+#about-info p {
+  font-size: 1.1em;
+}
+
+#about-title {
+  text-align: center;
+}
+
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
@@ -273,6 +314,14 @@ h1 {
   flex: 1;
  }
 
+ .column3 {
+  flex: 3;
+ }
+
+ .column4 {
+  flex: 7;
+ }
+
  #fun-facts .flex-container {
   width: 90%;
   margin: auto;
@@ -291,6 +340,10 @@ h1 {
   padding: 10px;
  }
 
+ #pictures .column-split {
+  flex-wrap: wrap;
+ }
+
  #footer-info {
   justify-content: space-between;
  }
@@ -303,4 +356,39 @@ h1 {
   width: 50%;
   margin: 5% 23.5%;
 }
+
+#picture-container {
+  position: absolute;
+  padding: 50px;
+  z-index: 1;
+  width: 70%;
+  background-color: white;
+  /* Found on tutorialspoint.com/ to center div */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#delaware-history img, #about-info img {
+  margin-right: 2%;
+  margin-left: 5%;
+}
+
+#about-info p {
+  margin-right: 10%;
+}
+
+#contact-info img {
+  width: 21px;
+  height: 21px;
+}
+
+#contact-info p {
+  margin: auto 0;
+}
+
+#contact-info a {
+  margin: auto 0;
+}
+
 }
