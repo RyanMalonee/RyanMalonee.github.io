@@ -3,12 +3,15 @@ body {
   background: #333333;
 }
 
-
 section {
   background: #3399FE;
   margin: 50px 30px;
   border-radius: 3px;
   align-items: center;
+}
+
+#rainbow-section {
+  min-height: 280px;
 }
 
 #quote-section p {
@@ -27,32 +30,15 @@ button {
   border-radius: 5px;
 }
 
-.red {
-  background-color: red;
+.hide {
+  display: none;
 }
 
-.orange {
-  background-color: orange;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.indigo {
-  background-color: indigo;
-}
-
-.violet {
-  background-color: violet;
+#pot-of-gold {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  z-index: 1;
 }
 
 /*Typography*/
@@ -69,6 +55,10 @@ section h1 {
   font-size: 2em;
 }
 
+#rainbow-section p {
+  color: transparent;
+}
+
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
@@ -79,4 +69,10 @@ section h1 {
  .column {
   flex: 1;
  }
+
+ #pot-of-gold {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+}
 }
