@@ -12,6 +12,7 @@ section {
 
 #rainbow-section {
   max-height: 280px;
+  min-height: 280px;
 }
 
 #quote-section p {
