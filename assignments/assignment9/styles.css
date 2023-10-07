@@ -63,17 +63,17 @@ section h1 {
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
- .flex-container {
-  display: flex;
- }
-
- .column {
-  flex: 1;
- }
-
- #pot-of-gold {
-  position: absolute;
-  right: 5%;
-  top: 30%;
-}
+  .flex-container {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+  }
+  
+  #pot-of-gold {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+  }
 }

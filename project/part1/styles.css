@@ -283,112 +283,112 @@ h1 {
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
- .flex-container {
-  display: flex;
- }
-
- #nav-items a {
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
- }
-
- #hamburger {
-  display: none;
- }
-
- header h2 {
-  position: relative;
-  top: 15px;
- }
-
- .column {
-  flex: 6;
- }
-
- .column2 {
-   flex: 4;
- }
-
- .column-split {
-  flex: 1;
- }
-
- .column3 {
-  flex: 3;
- }
-
- .column4 {
-  flex: 7;
- }
-
- #fun-facts .flex-container {
-  width: 90%;
-  margin: auto;
- }
-
- .no-background {
-  display: block;
- }
-
- #rows-of-cols.flex-container {
-  flex-wrap: wrap;
- }
-
- .col1 .column-split{
-  flex: 1;
-  padding: 10px;
- }
-
- #pictures .column-split {
-  flex-wrap: wrap;
- }
-
- #footer-info {
-  justify-content: space-between;
- }
-
- #activity-container {
-  position: absolute;
-  z-index: 1;
-  background-color: white;
-  padding: 20px;
-  width: 50%;
-  margin: 5% 23.5%;
-}
-
-#picture-container {
-  position: absolute;
-  padding: 50px;
-  z-index: 1;
-  width: 70%;
-  background-color: white;
-  /* Found on tutorialspoint.com/ to center div */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#delaware-history img, #about-info img {
-  margin-right: 2%;
-  margin-left: 5%;
-}
-
-#about-info p {
-  margin-right: 10%;
-}
-
-#contact-info img {
-  width: 21px;
-  height: 21px;
-}
-
-#contact-info p {
-  margin: auto 0;
-}
-
-#contact-info a {
-  margin: auto 0;
-}
-
+  .flex-container {
+    display: flex;
+  }
+  
+  #nav-items a {
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  #hamburger {
+    display: none;
+  }
+  
+  header h2 {
+    position: relative;
+    top: 15px;
+  }
+  
+  .column {
+    flex: 6;
+  }
+  
+  .column2 {
+    flex: 4;
+  }
+  
+  .column-split {
+    flex: 1;
+  }
+  
+  .column3 {
+    flex: 3;
+  }
+  
+  .column4 {
+    flex: 7;
+  }
+  
+  #fun-facts .flex-container {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .no-background {
+    display: block;
+  }
+  
+  #rows-of-cols.flex-container {
+    flex-wrap: wrap;
+  }
+  
+  .col1 .column-split{
+    flex: 1;
+    padding: 10px;
+  }
+  
+  #pictures .column-split {
+    flex-wrap: wrap;
+  }
+  
+  #footer-info {
+    justify-content: space-between;
+  }
+  
+  #activity-container {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    margin: 5% 23.5%;
+  }
+  
+  #picture-container {
+    position: absolute;
+    padding: 50px;
+    z-index: 1;
+    width: 70%;
+    background-color: white;
+    /* Found on tutorialspoint.com/ to center div */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #delaware-history img, #about-info img {
+    margin-right: 2%;
+    margin-left: 5%;
+  }
+  
+  #about-info p {
+    margin-right: 10%;
+  }
+  
+  #contact-info img {
+    width: 21px;
+    height: 21px;
+  }
+  
+  #contact-info p {
+    margin: auto 0;
+  }
+  
+  #contact-info a {
+    margin: auto 0;
+  }
+  
 }
