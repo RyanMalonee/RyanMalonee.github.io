@@ -171,7 +171,7 @@ img {
   margin: auto;
 }
 
-#about-info {
+#about-me-section {
   background-color: #EFEFEF;
 }
 
@@ -179,6 +179,13 @@ img {
   padding: 10px;
 }
 
+#contact-info {
+  margin: 0 20px;
+}
+
+#contact-title {
+  margin: 30px;
+}
 
 /* Footer */
 footer {
@@ -280,6 +287,11 @@ h1 {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
@@ -344,8 +356,9 @@ h1 {
     flex-wrap: wrap;
   }
   
-  #footer-info {
+  #footer-info{
     justify-content: space-between;
+    padding: 2px;
   }
   
   #activity-container {
@@ -377,18 +390,17 @@ h1 {
   #about-info p {
     margin-right: 10%;
   }
-  
-  #contact-info img {
-    width: 21px;
-    height: 21px;
+
+  #contact-info {
+    width: 80%;
+    margin: 0 auto;
   }
   
+  #contact-info p, #contact-info img, #contact-info h3 {
+    margin: 30px 2px;
+  }
+
   #contact-info p {
-    margin: auto 0;
+    padding-top: 2px;
   }
-  
-  #contact-info a {
-    margin: auto 0;
-  }
-  
 }
