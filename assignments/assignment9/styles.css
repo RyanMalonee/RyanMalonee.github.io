@@ -11,7 +11,7 @@ section {
 }
 
 #rainbow-section {
-  min-height: 280px;
+  max-height: 280px;
 }
 
 #quote-section p {
@@ -72,7 +72,7 @@ section h1 {
 
  #pot-of-gold {
   position: absolute;
-  right: 10%;
+  right: 5%;
   top: 30%;
 }
 }
