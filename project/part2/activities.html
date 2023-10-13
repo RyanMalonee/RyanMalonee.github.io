@@ -7,7 +7,7 @@
   <body>
     <header>
       <div class="flex-container">
-        <a href="index.html"><img src="https://place-hold.it/75"></a>
+        <a href="index.html"><img src="images/delaware-state-seal.png"></a>
         <a href="index.html"><h2>Dela-Where? - Things to Do While In Delaware</h2></a>
       </div>
       <nav id="main-nav">
@@ -26,7 +26,24 @@
       </nav>
     </header>
       <main>
-        <div id="activity-container" class="hide">
+        <!-- Used the in-class example for the modal -->
+        <div id="modal-background" class="hide">
+          <div id="image-container" class="image-container" style="opacity: 0">
+              <span class="x-button">&times;</span>
+              <img id="big-image" src="">
+              <div class="flex-container">
+                <section class="column-split">
+                  <h2>Information:</h2>
+                  <p>Hours of Operation: 11AM-9PM</p>
+                  <p>Phone Number: (302) 227-1921</p>
+                  <p>Address: 6 Delaware Avenue, Rehoboth Beach, Delaware 19971, United States</p>
+                  <p>Review: 4.6 / 5</p>
+                </section>
+              </div>
+          </div>
+        </div>
+        
+        <!--<div id="activity-container" class="hide">
           <h1>Fun Land</h1>
           <img id="x-button" src="images/x-icon.png">
           <div class="flex-container">
@@ -38,7 +55,7 @@
                 At fun land, you will not get bored. The family can stay and play for hours and still not have explored everything they have to offer. With a fun team of staff members, different activies, lots of prizes, and even better carnival food, everybody has to check out this place at least once!
                 The only tip I have is to make sure that you bring your wallet with you as Fun Land works on tickets that you have to purchase with cash or a debit card. When you arrive at the park, just visit one of the carnival style booths to buy a pack of tickets to get your day of fun started.</p>
               </section>
-          </div>
+          </div> 
           <div class="flex-container">
             <section class="column-split">
               <h2>Information:</h2>
@@ -48,14 +65,14 @@
               <p>Review: 4.6 / 5</p>
             </section>
           </div>
-        </div>
+        </div>-->
         <h1 class="center">Attractions</h1>
         <div id="attractions" class="flex-container list">
           <section class="no-background">
-            <img src="images/next-arrow-left.png">
+            <p id="backwards-arrow">&lt;</p>
           </section>
           <section id="fun-land" class="column-split">
-            <img src="https://place-hold.it/210x150">
+            <img src="https://place-hold.it/210x150" large-src="https://place-hold.it/1000x500">
             <p class="bold">Fun Land</p>
             <p>A great amusement park to enjoy rides, play games, and have a good time!</p>
           </section>
@@ -80,14 +97,14 @@
             <p>A large waterpark located in Rehoboth, DE. With so much to do, the family is sure to have fun!</p>
           </section>
           <section class="no-background">
-            <img src="images/next-arrow.png">
+            <p id="forwards-arrow">&gt;</p>
           </section>
         </div>
         <hr>
         <h1 class="center">Activities</h1>
         <div id="activities" class="flex-container list">
           <section class="no-background">
-            <img src="images/next-arrow-left.png">
+            <p id="backwards-arrow">&lt;</p>
           </section>
           <section id="beach-day" class="column-split">
             <img src="https://place-hold.it/210x150">
@@ -115,7 +132,7 @@
             <p>Fort Delaware is located on Pea Patch Island and is a Civil-War era fortress with an interesting history.</p>
           </section>
           <section class="no-background">
-            <img src="images/next-arrow.png">
+            <p id="forwards-arrow">&gt;</p>
           </section>
         </div>
         <div id="new-recommendations">
