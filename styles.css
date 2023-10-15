@@ -125,7 +125,7 @@ body {
   }
 
   .column {
-    flex: 22%;
+    flex: 30%;
     flex-grow: 0;
   }
 }
