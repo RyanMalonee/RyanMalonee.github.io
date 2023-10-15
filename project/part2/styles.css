@@ -1,14 +1,20 @@
 /* Structure */
+
 body {
   margin: 0;
   padding: 0;
   background: #F5F5F5;
   z-index: 0;
   max-width: 100%;
+  max-width: 100%;
 }
 
 header {
   background: #0177B6;
+}
+
+h1 {
+  padding: 10px;
 }
 
 .hide {
@@ -23,17 +29,26 @@ header img {
   margin: 10px;
 }
 
-#slideshow-container img{
+#slideshow-container {
   width: 100%;
+  padding-top: 400px;
+  background-image: url('images/delaware-landscape.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 img {
   max-width: 100%;
+  min-width: 10px;
 }
 
 #delaware-intro p, #delaware-intro h2, #navigating-the-state p,
 #navigating-the-state h2 {
   padding: 10px;
+}
+
+#navigating-the-state p {
+  max-width: 100%;
 }
 
 #delaware-intro button {
@@ -48,17 +63,21 @@ img {
   background: #959595;
 }
 
-#delaware-history, #delaware-intro {
+#delaware-history, #delaware-intro, #navigating-the-state {
   max-width: 100%;
 }
 
 #delaware-history img, #about-info img {
-  width: 100%;
   margin-bottom:1%;
   margin-top: 1%;
 }
 
-#delaware-history p, #delaware-history h1, #landscape p, #landscape h1 {
+.center-img {
+  display: block;
+  margin: 0 auto;
+}
+
+p {
   padding: 0 10px;
 }
 
@@ -177,6 +196,18 @@ img {
   margin: 30px;
 }
 
+#delaware-flag {
+  max-height: 300px;
+}
+
+#rehoboth-pic {
+  max-height: 400px;
+}
+
+#navigating-the-state img {
+  min-width: 300px;
+}
+
 /* Modal Dialog */
 
 #modal-background {
@@ -262,7 +293,7 @@ footer {
 }
 
 footer img {
-  padding-top: 10px;
+  padding: 10px;
 }
 
 /* Navigation */
@@ -315,16 +346,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+p {
+  font-size: 1.1em;
+}
+
 header h2, #form-submit-button {
   color: white;
 }
 
 #main-nav a {
   font-size: 1.2em;
-}
-
-#delaware-intro p{
-  font-size: 1.1em;
 }
 
 h1 {
@@ -347,10 +378,6 @@ h1 {
   text-align: center;
 }
 
-#about-info p {
-  font-size: 1.1em;
-}
-
 #about-title {
   text-align: center;
 }
@@ -358,6 +385,10 @@ h1 {
 a {
   text-decoration: none;
   color: black;
+}
+
+#attribution {
+  font-size: 10px;
 }
 
 
@@ -453,11 +484,12 @@ a {
   }
   
   #contact-info p, #contact-info img, #contact-info h3 {
+    padding-top: 17px;
     margin: 30px 2px;
   }
 
-  #contact-info p {
-    padding-top: 2px;
+  #contact-info img {
+    padding: 10px;
   }
 
   .image-container {

@@ -5,12 +5,13 @@ const imageBoxContainer = () => {
   const background = document.getElementById("modal-background");
   const imageContainer = document.getElementById("image-container");
   const bigImage = document.getElementById("big-image");
+  const attribution = document.getElementById("attribution");
   document.querySelectorAll("main img").forEach((img) => {
     img.onclick = () => {
       bigImage.src = img.getAttribute("large-src");
       background.classList.remove("hide");
+      attribution.innerHTML = img.getAttribute("att");
       imageContainer.classList.add("show-image");
-
       imageContainer.addEventListener("animationend", () => {
         imageContainer.classList.remove("show-image");
         imageContainer.style.opacity = 1;
