@@ -6,7 +6,6 @@ body {
   background: #F5F5F5;
   z-index: 0;
   max-width: 100%;
-  max-width: 100%;
 }
 
 header {
@@ -40,6 +39,10 @@ header img {
 img {
   max-width: 100%;
   min-width: 10px;
+}
+
+#contact-info .flex-container p {
+  max-width: 100%;
 }
 
 #delaware-intro p, #delaware-intro h2, #navigating-the-state p,
@@ -101,7 +104,6 @@ p {
 .list {
   background: #F5F5F5;
   max-width: 100%;
-  max-height: fit-content;
 }
 
 .list section.column-split {
@@ -115,12 +117,12 @@ p {
   text-align: center;
   margin: 0;
   font-size: 1.2em;
-  padding: 2px;
+  padding: 10px;
 }
 
 .list img {
   width: 100%;
-  height: 50%;
+  max-height: 50%;
 }
 
 .no-background {
@@ -148,13 +150,6 @@ p {
 #button-container{
   text-align: center;
   margin: auto;
-}
-
-#activity-container {
-  position: absolute;
-  z-index: 1;
-  background-color: white;
-  width: 100%;
 }
 
 #pictures {
@@ -208,15 +203,20 @@ p {
   min-width: 300px;
 }
 
+#about-image {
+  min-width: 400px;
+  max-height: 450px;
+}
+
 /* Modal Dialog */
 
 #modal-background {
   width: 100%;
   height: 100%;
   position: fixed;
+  padding: 5px 0;
   left: 0;
   top: 0;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
@@ -249,7 +249,7 @@ p {
   padding: 0px 5px;
 }
 
-/* TODO: Check x-button:focus */
+
 .x-button:hover, .x-button:focus {
   color: #0177B6;
   text-decoration: none;
@@ -346,7 +346,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-p {
+p:not(#image-container p) {
   font-size: 1.1em;
 }
 
@@ -391,6 +391,14 @@ a {
   font-size: 10px;
 }
 
+#image-container p:not(#attribution){
+  font-size: 14px;
+  margin: 5px;
+}
+
+#image-contaner h2 {
+  margin: 5px;
+}
 
 /* Larger Resolutions */
 @media only screen and (min-width: 600px) {
@@ -422,7 +430,7 @@ a {
   }
   
   .column-split {
-    flex: 1;
+    flex: 2;
   }
   
   .column3 {
@@ -460,15 +468,6 @@ a {
     padding: 2px;
   }
   
-  #activity-container {
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    padding: 20px;
-    width: 50%;
-    margin: 5% 23.5%;
-  }
-  
   #delaware-history img, #about-info img {
     margin-right: 2%;
     margin-left: 5%;
@@ -498,6 +497,7 @@ a {
     padding: 20px;
     border: 1px solid #888;
     width: fit-content;
+
   }
   
   .image-container img {
@@ -506,4 +506,15 @@ a {
     padding: 10px;
     margin: auto;
   }
+
+  #contact-info .flex-container{
+    flex-wrap: wrap;
+  }
+}
+
+/* Smaller Resolutions */
+@media only screen and (max-width: 600px) {
+ .list img {
+  width: 50%;
+ }
 }
