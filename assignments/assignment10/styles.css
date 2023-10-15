@@ -11,12 +11,18 @@ body {
 }
 
 .column {
+  padding: 10px;
   background-color: white;
-  margin: 10px;
+  margin: 20px;
 }
 
 .column img {
   margin: auto;
+  padding: 5px;
+}
+
+p {
+  padding: 5px;
 }
 
 /* Transitions, hover, and showing toy details */
@@ -84,8 +90,9 @@ h3, p {
  }
 
  .column {
-  flex: 30%;
+  flex: 28%;
   justify-content: space-between;
-
+  flex-grow: 1;
+  flex-wrap: wrap;
  }
 }
