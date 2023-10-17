@@ -45,5 +45,5 @@ const toggleHamburger = () => {
 window.onload = () => {
   document.getElementById("hamburger").onclick = toggleHamburger;
   imageBoxContainer();
-  document.getElementById("form-submit-button").onclick =
+  document.getElementById("form-submit-button").onclick = formSubmitMessage;
 }
