@@ -426,6 +426,16 @@ h1 {
   font-weight: bold;
 }
 
+#new-rec-title {
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+}
+
+#new-recommendations #rows-of-cols {
+  justify-content: center;
+}
+
 #new-recommendations div:not(#hours-container) {
   padding: 20px;
 }
