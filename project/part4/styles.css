@@ -3,13 +3,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: #F5F5F5;
+  background: #f5f5f5;
   z-index: 0;
   max-width: 100%;
 }
 
 header {
-  background: #0177B6;
+  background: #0177b6;
 }
 
 h1 {
@@ -31,7 +31,7 @@ header img {
 #slideshow-container {
   width: 100%;
   padding-top: 400px;
-  background-image: url('images/delaware-landscape.jpg');
+  background-image: url("images/delaware-landscape.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -45,7 +45,9 @@ img {
   max-width: 100%;
 }
 
-#delaware-intro p, #delaware-intro h2, #navigating-the-state p,
+#delaware-intro p,
+#delaware-intro h2,
+#navigating-the-state p,
 #navigating-the-state h2 {
   padding: 10px;
 }
@@ -54,10 +56,10 @@ img {
   max-width: 100%;
 }
 
-#delaware-intro button{
+#delaware-intro button {
   margin: 10px;
   padding: 7px 2px;
-  background: #0177B6;
+  background: #0177b6;
   color: white;
   border-radius: 1px;
 }
@@ -66,12 +68,15 @@ img {
   background: #959595;
 }
 
-#delaware-history, #delaware-intro, #navigating-the-state {
+#delaware-history,
+#delaware-intro,
+#navigating-the-state {
   max-width: 100%;
 }
 
-#delaware-history img, #about-info img {
-  margin-bottom:1%;
+#delaware-history img,
+#about-info img {
+  margin-bottom: 1%;
   margin-top: 1%;
 }
 
@@ -84,8 +89,9 @@ p {
   padding: 0 10px;
 }
 
-#fun-facts, #delaware-history {
-  background: #EBF1F7;
+#fun-facts,
+#delaware-history {
+  background: #ebf1f7;
 }
 
 #fun-facts section {
@@ -102,12 +108,12 @@ p {
 }
 
 .list {
-  background: #F5F5F5;
+  background: #f5f5f5;
   max-width: 100%;
 }
 
 .list section.column-split {
-  background: #7FA8D4;
+  background: #7fa8d4;
   overflow: hidden;
   margin: 5px 10px 15px 10px;
   text-align: center;
@@ -126,7 +132,7 @@ p {
 }
 
 .no-background {
-  background: #F5F5F5;
+  background: #f5f5f5;
   margin: auto 20px;
   display: none;
   cursor: pointer;
@@ -143,7 +149,7 @@ p {
 #form-submit-button {
   width: 30%;
   padding: 10px;
-  background-color: #0177B6;
+  background-color: #0177b6;
   border-radius: 3px;
   border: solid 3px lightgrey;
 }
@@ -153,13 +159,13 @@ p {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#button-container{
+#button-container {
   text-align: center;
   margin: auto;
 }
 
 #pictures {
-  background: #EBF1F7;
+  background: #ebf1f7;
   max-width: 100%;
 }
 
@@ -171,7 +177,9 @@ p {
   text-decoration: underline;
 }
 
-#sussex-county, #kent-county, #new-castle-county {
+#sussex-county,
+#kent-county,
+#new-castle-county {
   margin: auto;
   text-align: center;
   width: 90%;
@@ -182,7 +190,7 @@ p {
 }
 
 #about-me-page {
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 
 #about-info p {
@@ -220,8 +228,8 @@ p {
   width: fit-content;
   min-width: 60%;
   margin: 0 auto;
-  background:#0177B6;
-  border: 3px solid #BEBEBE;
+  background: #0177b6;
+  border: 3px solid #bebebe;
   max-width: 100%;
   color: white;
   font-size: 1.1em;
@@ -234,7 +242,7 @@ p {
 #contact-form label {
   display: block;
   padding: 10px 10px 10px -10px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 #contact-form input {
@@ -261,7 +269,7 @@ p {
   width: 50%;
   margin: 0 auto;
   border-radius: 3px;
-  font-size: .8em;
+  font-size: 0.8em;
   border: solid darkgrey 3px;
   color: black;
 }
@@ -269,6 +277,33 @@ p {
 #contact-submit-button:hover {
   border: solid 3px white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#email-results {
+  height: 50px;
+}
+
+#map {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 4px;
+  background: #0177b6;
+  border: 2px solid white;
+}
+
+#new-rec-result-container {
+  background: #0177b6;
+  color: white;
+  min-width: 60%;
+  max-height: 600px;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+#new-rec-result-container p {
+  white-space: normal;
 }
 
 /* Modal Dialog */
@@ -291,6 +326,8 @@ p {
   border: 1px solid #888;
   width: 90%;
   max-width: 100%;
+  max-height: 90%;
+  overflow-y: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -312,9 +349,9 @@ p {
   padding: 0px 5px;
 }
 
-
-.x-button:hover, .x-button:focus {
-  color: #0177B6;
+.x-button:hover,
+.x-button:focus {
+  color: #0177b6;
   text-decoration: none;
   cursor: pointer;
 }
@@ -333,26 +370,26 @@ p {
 
 @keyframes slideIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 @keyframes slideOut {
   from {
-      opacity: 1;
+    opacity: 1;
   }
   to {
-      opacity: 0;
+    opacity: 0;
   }
 }
 
 /* Footer */
 footer {
   padding: 0 10px;
-  background: #BEBEBE;
+  background: #bebebe;
 }
 
 footer img {
@@ -381,7 +418,7 @@ footer img {
 }
 
 #main-nav .bottom-border {
-  border-bottom: 5px solid #93D1F3;
+  border-bottom: 5px solid #93d1f3;
 }
 
 #nav-items {
@@ -403,7 +440,6 @@ footer img {
   width: 150px;
 }
 
-
 /*Typography*/
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -413,7 +449,8 @@ p:not(#image-container p) {
   font-size: 1.1em;
 }
 
-header h2, #form-submit-button {
+header h2,
+#form-submit-button {
   color: white;
 }
 
@@ -455,11 +492,13 @@ h1 {
   padding: 10px;
 }
 
-#new-recommendations input, #new-recommendations select {
+#new-recommendations input,
+#new-recommendations select {
   padding: 5px;
 }
 
-#new-recommendations #open-time, #new-recommendations #close-time {
+#new-recommendations #open-time,
+#new-recommendations #close-time {
   height: fit-content;
 }
 
@@ -486,13 +525,17 @@ a {
   font-size: 10px;
 }
 
-#image-container p:not(#attribution){
+#image-container p:not(#attribution):not(.column-split p) {
   font-size: 14px;
   margin: 5px;
 }
 
-#image-contaner h2 {
+#image-container h2 {
   margin: 5px;
+}
+
+#email-results p {
+  text-align: center;
 }
 
 /* See if this is okay since flex is outside of media query*/
@@ -500,7 +543,9 @@ a {
   display: flex;
 }
 
-#open-time, #close-time, #time-seperator {
+#open-time,
+#close-time,
+#time-seperator {
   flex: 1;
   flex-direction: row;
 }
@@ -510,74 +555,75 @@ a {
   .flex-container {
     display: flex;
   }
-  
+
   #nav-items a {
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
   }
-  
+
   #hamburger {
     display: none;
   }
-  
+
   header h2 {
     position: relative;
     top: 15px;
   }
-  
+
   .column {
     flex: 6;
   }
-  
+
   .column2 {
     flex: 4;
   }
-  
+
   .column-split {
     flex: 2;
   }
-  
+
   .column3 {
     flex: 3;
   }
-  
+
   .column4 {
     flex: 7;
   }
-  
+
   #fun-facts .flex-container {
     width: 90%;
     margin: auto;
   }
-  
+
   .no-background {
     display: block;
   }
-  
+
   #rows-of-cols.flex-container {
     flex-wrap: wrap;
   }
-  
-  .col1 .column-split{
+
+  .col1 .column-split {
     flex: 1;
     padding: 10px;
   }
-  
+
   #pictures .column-split {
     flex-wrap: wrap;
   }
-  
-  #footer-info{
+
+  #footer-info {
     justify-content: space-between;
     padding: 2px;
   }
-  
-  #delaware-history img, #about-info img {
+
+  #delaware-history img,
+  #about-info img {
     margin-right: 2%;
     margin-left: 5%;
   }
-  
+
   #about-info p {
     margin-right: 10%;
   }
@@ -586,8 +632,10 @@ a {
     width: 80%;
     margin: 0 auto;
   }
-  
-  #contact-info p, #contact-info img, #contact-info h3 {
+
+  #contact-info p,
+  #contact-info img,
+  #contact-info h3 {
     padding-top: 17px;
     margin: 30px 2px;
   }
@@ -602,9 +650,9 @@ a {
     padding: 20px;
     border: 1px solid #888;
     width: fit-content;
-
+    min-width: 60%;
   }
-  
+
   .image-container img {
     max-width: fit-content;
     display: block;
@@ -612,7 +660,7 @@ a {
     margin: auto;
   }
 
-  #contact-info .flex-container{
+  #contact-info .flex-container {
     flex-wrap: wrap;
   }
 
@@ -623,7 +671,7 @@ a {
 
 /* Smaller Resolutions */
 @media only screen and (max-width: 600px) {
- .list img {
-  width: 50%;
- }
+  .list img {
+    width: 50%;
+  }
 }

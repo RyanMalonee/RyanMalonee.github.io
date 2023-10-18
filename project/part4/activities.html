@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <title>Dela-Where? - Activities & Attractions</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <div class="flex-container">
-        <a href="index.html"><img src="images/delaware-state-seal.png"></a>
-        <a href="index.html"><h2>Dela-Where? - Things to Do While In Delaware</h2></a>
+        <a href="index.html"><img src="images/delaware-state-seal.png" /></a>
+        <a href="index.html"
+          ><h2>Dela-Where? - Things to Do While In Delaware</h2></a
+        >
       </div>
       <nav id="main-nav">
         <div id="hamburger">
@@ -18,174 +20,299 @@
         </div>
         <ul id="nav-items" class="flex-container hide">
           <a href="index.html"><li id="home-tab">Home</li></a>
-          <a href="discover.html"><li id="discover-tab">Discover Delaware</li></a>
-          <a href="#"><li id="activities-tab" class="bottom-border">Activities & Attractions</li></a>
+          <a href="discover.html"
+            ><li id="discover-tab">Discover Delaware</li></a
+          >
+          <a href="#"
+            ><li id="activities-tab" class="bottom-border">
+              Activities & Attractions
+            </li></a
+          >
           <a href="pictures.html"><li id="pictures-tab">Pictures</li></a>
           <a href="about.html"><li id="about-tab">About Me</li></a>
         </ul>
       </nav>
     </header>
-      <main>
-        <!-- Used the in-class example for the modal -->
-        <div id="modal-background" class="hide">
-          <div id="image-container" class="image-container" style="opacity: 0">
-              <span class="x-button">&times;</span>
-              <img id="big-image" src="">
-              <p id="attribution"></p>
-              <div class="flex-container">
-                <section class="column-split">
-                  <h2>Information:</h2>
-                  <p>Hours of Operation: 11AM-9PM</p>
-                  <p>Phone Number: (302) 227-1921</p>
-                  <p>Address: 6 Delaware Avenue, Rehoboth Beach, Delaware 19971, United States</p>
-                  <p>Review: 4.6 / 5</p>
-                </section>
-              </div>
+    <main>
+      <!-- Used the in-class example for the modal -->
+      <div id="modal-background" class="hide">
+        <div id="image-container" class="image-container" style="opacity: 0">
+          <span class="x-button">&times;</span>
+          <div class="flex-container">
+            <img class="column-split" id="big-image" src="" />
+            <section class="column-split">
+              <p>
+                Fun Land is located directly on the Rehoboth Beach boardwalk, in
+                perfect walking distance from a number of other attractions.
+                Whether you just came from the beach or just want a fun activity
+                to do with your family, Fun Land lives up to its name by
+                providing tons of fun. With many different rides, for all ages,
+                along with different arcade games for the whole family to play,
+                there is so much to do.
+              </p>
+              <p>
+                At fun land, you will not get bored. The family can stay and
+                play for hours and still not have explored everything they have
+                to offer. With a fun team of staff members, different activies,
+                lots of prizes, and even better carnival food, everybody has to
+                check out this place at least once!
+              </p>
+              <p>
+                The only tip I have is to make sure that you bring your wallet
+                with you as Fun Land works on tickets that you have to purchase
+                with cash or a debit card. When you arrive at the park, just
+                visit one of the carnival style booths to buy a pack of tickets
+                to get your day of fun started.
+              </p>
+            </section>
+          </div>
+          <p id="attribution"></p>
+          <div class="flex-container">
+            <section class="column-split">
+              <h2>Information:</h2>
+              <p>Hours of Operation: 11AM-9PM</p>
+              <p>Phone Number: (302) 227-1921</p>
+              <p>
+                Address: 6 Delaware Avenue, Rehoboth Beach, Delaware 19971,
+                United States
+              </p>
+              <p>Review: 4.6 / 5</p>
+            </section>
+            <section class="column-split">
+              <iframe
+                id="map"
+                src=""
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </section>
           </div>
         </div>
-        
-        
-        <h1 class="center">Attractions</h1>
-        <div id="attractions" class="flex-container list">
-          <section class="no-background">
-            <p id="backwards-arrow">&lt;</p>
-          </section>
-          <section id="fun-land" class="column-split">
-            <img src="images/activities/fun-land.jpg" large-src="images/activities/fun-land-big.jpg" att="Image by: Kurt Wagner on Flickr, CC BY-NC-ND 2.0 DEED, https://www.flickr.com/photos/kurtwagner/19192739421">
-            <p class="bold">Fun Land</p>
-            <p>A great amusement park to enjoy rides, play games, and have a good time!</p>
-          </section>
-          <section id="go-ape" class="column-split">
-            <img src="images/activities/go-ape.jpg" large-src="images/activities/go-ape-big.jpg" att="Image by: Mack Male from Edmonton, AB, Canada, CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0, via Wikimedia Commons. Preview image has been cropped.">
-            <p class="bold">Go Ape!</p>
-            <p>A fun zip-lining course for you and your family to enjoy.</p>
-          </section>
-          <section id="shell-we-golf" class="column-split">
-            <img src="images/activities/mini-golf.jpg" large-src="images/activities/mini-golf-big.jpg" att="Image by: Ken Srail from North Olmsted, OH, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons. Preview image has been cropped.">
-            <p class="bold">Shell We Golf</p>
-            <p>A cute mini-golfing location right near Rehoboth beach.</p>
-          </section>
-          <section id="Winterthur" class="column-split">
-            <img src="images/activities/winterthur.jpeg" large-src="images/activities/winterthur-big.jpeg" att="Image by: Daderot, CC0, via Wikimedia Commons Preview image has been cropped.">
-            <p class="bold">Winterthur Museum & Gardens</p>
-            <p>A beautiful museum and garden on Henry Francis du Pont's property.</p>
-          </section>
-          <section id="jungle-jim" class="column-split">
-            <img src="images/activities/water-slide.jpg" large-src="images/activities/water-slide-big.jpg" att="Image by: Austin Kirk, CC BY 2.0, https://creativecommons.org/licenses/by/2.0/, via Flickr. Images have been cropped/resized.">
-            <p class="bold">Jungle Jim's</p>
-            <p>A large waterpark located in Rehoboth, DE. With so much to do, the family is sure to have fun!</p>
-          </section>
-          <section class="no-background">
-            <p id="forwards-arrow">&gt;</p>
-          </section>
-        </div>
-        <hr>
-        <h1 class="center">Activities</h1>
-        <div id="activities" class="flex-container list">
-          <section class="no-background">
-            <p id="backwards-arrow">&lt;</p>
-          </section>
-          <section id="beach-day" class="column-split">
-            <img src="images/activities/rehoboth-beach.jpg" large-src="images/activities/rehoboth-beach-big.jpg" att="Image by: APK, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons.">
-            <p class="bold">Beach Day</p>
-            <p>Delaware has many beautiful beaches to go to. No matter which one you end up at it will be a good time.</p>
-          </section>
-          <section id="parks" class="column-split">
-            <img src="images/activities/capehenlopen-trail.jpg" large-src="images/activities/capehenlopen-trail-big.jpg" att="Image by: Nolabob, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons">
-            <p class="bold">Explore the Parks</p>
-            <p>In addition to beaches, Delaware has 18 state parks ready to be explored!</p>
-          </section>
-          <section id="shopping" class="column-split">
-            <img src="images/activities/christiana-mall.jpg" large-src="images/activities/christiana-mall-big.jpg" att="Image by: Dough4872, CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0, via Wikimedia Commons">
-            <p class="bold">Shopping Trip</p>
-            <p>Delaware is one of the few states that offer no sales tax. So explore the outlets or the malls to shop!</p>
-          </section>
-          <section id="new-castle" class="column-split">
-            <img src="images/activities/historic-new-castle.jpg" large-src="images/activities/historic-new-castle-big.jpg" att="Image by: JERRYE & ROY KLOTZ, M.D., CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons">
-            <p class="bold">Visit Historic New Castle</p>
-            <p>New Castle is a historic town with an old vibe. It offers many museums to check out.</p>
-          </section>
-          <section id="fort-delaware" class="column-split">
-            <img src="images/activities/fort-delaware.jpg" large-src="images/activities/fort-delaware-big.jpg" att="Image by: Shun Ho, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons. ">
-            <p class="bold">Explore Fort Delaware</p>
-            <p>Fort Delaware is located on Pea Patch Island and is a Civil-War era fortress with an interesting history.</p>
-          </section>
-          <section class="no-background">
-            <p id="forwards-arrow">&gt;</p>
-          </section>
-        </div>
-        <hr>
-        <h1 id="new-rec-title">New Recommendations: </h1>
-        <div id="new-recommendations">
+      </div>
+
+      <h1 class="center">Attractions</h1>
+      <div id="attractions" class="flex-container list">
+        <section class="no-background">
+          <p id="backwards-arrow">&lt;</p>
+        </section>
+        <section id="fun-land" class="column-split">
+          <img
+            src="images/activities/fun-land.jpg"
+            large-src="images/activities/fun-land-big.jpg"
+            att="Image by: Kurt Wagner on Flickr, CC BY-NC-ND 2.0 DEED, https://www.flickr.com/photos/kurtwagner/19192739421"
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.1404032578835!2d-75.07879262396649!3d38.714585357469936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b8b66c208db561%3A0xfeadeb3f05a3058a!2sFunland!5e0!3m2!1sen!2sus!4v1697590670935!5m2!1sen!2sus"
+          />
+          <p class="bold">Fun Land</p>
+          <p>
+            A great amusement park to enjoy rides, play games, and have a good
+            time!
+          </p>
+        </section>
+        <section id="go-ape" class="column-split">
+          <img
+            src="images/activities/go-ape.jpg"
+            large-src="images/activities/go-ape-big.jpg"
+            att="Image by: Mack Male from Edmonton, AB, Canada, CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0, via Wikimedia Commons. Preview image has been cropped."
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.5031407391048!2d-75.73344252393103!3d39.57080950669007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7a7ec70560d3f%3A0x48773685a3c79f71!2sGo%20Ape%20Zipline%20and%20Adventure%20Park!5e0!3m2!1sen!2sus!4v1697590759319!5m2!1sen!2sus"
+          />
+          <p class="bold">Go Ape!</p>
+          <p>A fun zip-lining course for you and your family to enjoy.</p>
+        </section>
+        <section id="shell-we-golf" class="column-split">
+          <img
+            src="images/activities/mini-golf.jpg"
+            large-src="images/activities/mini-golf-big.jpg"
+            att="Image by: Ken Srail from North Olmsted, OH, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons. Preview image has been cropped."
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.7948291043017!2d-75.12567512396618!3d38.7225192570038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b8b7bbb0fa6653%3A0x52420ee256778818!2sShell%20We%20Golf!5e0!3m2!1sen!2sus!4v1697590794764!5m2!1sen!2sus"
+          />
+          <p class="bold">Shell We Golf</p>
+          <p>A cute mini-golfing location right near Rehoboth beach.</p>
+        </section>
+        <section id="Winterthur" class="column-split">
+          <img
+            src="images/activities/winterthur.jpeg"
+            large-src="images/activities/winterthur-big.jpeg"
+            att="Image by: Daderot, CC0, via Wikimedia Commons Preview image has been cropped."
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.969278227964!2d-75.60665761293183!3d39.807680919124095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fc0eaf33a65b%3A0xb3275263bd350834!2sWinterthur%20Museum%2C%20Garden%20and%20Library!5e0!3m2!1sen!2sus!4v1697590886901!5m2!1sen!2sus"
+          />
+          <p class="bold">Winterthur Museum & Gardens</p>
+          <p>
+            A beautiful museum and garden on Henry Francis du Pont's property.
+          </p>
+        </section>
+        <section id="jungle-jim" class="column-split">
+          <img
+            src="images/activities/water-slide.jpg"
+            large-src="images/activities/water-slide-big.jpg"
+            att="Image by: Austin Kirk, CC BY 2.0, https://creativecommons.org/licenses/by/2.0/, via Flickr. Images have been cropped/resized."
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.2525139762924!2d-75.10636892396666!3d38.71201115762124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b8b635f3687241%3A0x5fc768443d545763!2sJungle%20Jim&#39;s!5e0!3m2!1sen!2sus!4v1697590931630!5m2!1sen!2sus"
+          />
+          <p class="bold">Jungle Jim's</p>
+          <p>
+            A large waterpark located in Rehoboth, DE. With so much to do, the
+            family is sure to have fun!
+          </p>
+        </section>
+        <section class="no-background">
+          <p id="forwards-arrow">&gt;</p>
+        </section>
+      </div>
+      <hr />
+      <h1 class="center">Activities</h1>
+      <div id="activities" class="flex-container list">
+        <section class="no-background">
+          <p id="backwards-arrow">&lt;</p>
+        </section>
+        <section id="beach-day" class="column-split">
+          <img
+            src="images/activities/rehoboth-beach.jpg"
+            large-src="images/activities/rehoboth-beach-big.jpg"
+            att="Image by: APK, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons."
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49803.554022915145!2d-75.1314946277514!3d38.72418823427821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b896667c7333a7%3A0x61182de5a751636a!2sRehoboth%20Beach%2C%20DE!5e0!3m2!1sen!2sus!4v1697590993541!5m2!1sen!2sus"
+          />
+          <p class="bold">Beach Day</p>
+          <p>
+            Delaware has many beautiful beaches to go to. No matter which one
+            you end up at it will be a good time.
+          </p>
+        </section>
+        <section id="parks" class="column-split">
+          <img
+            src="images/activities/capehenlopen-trail.jpg"
+            large-src="images/activities/capehenlopen-trail-big.jpg"
+            att="Image by: Nolabob, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.1957538357838!2d-75.10582822396377!3d38.78214655349602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b8b6d449da5e37%3A0xef05ecc779df7a41!2sCape%20Henlopen%20State%20Park!5e0!3m2!1sen!2sus!4v1697591029080!5m2!1sen!2sus"
+          />
+          <p class="bold">Explore the Parks</p>
+          <p>
+            In addition to beaches, Delaware has 18 state parks ready to be
+            explored!
+          </p>
+        </section>
+        <section id="shopping" class="column-split">
+          <img
+            src="images/activities/christiana-mall.jpg"
+            large-src="images/activities/christiana-mall-big.jpg"
+            att="Image by: Dough4872, CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0, via Wikimedia Commons"
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.731198461981!2d-75.65442882392655!3d39.67826080025382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7013dfd671915%3A0x785b04879852dede!2sChristiana%20Mall!5e0!3m2!1sen!2sus!4v1697591057298!5m2!1sen!2sus"
+          />
+          <p class="bold">Shopping Trip</p>
+          <p>
+            Delaware is one of the few states that offer no sales tax. So
+            explore the outlets or the malls to shop!
+          </p>
+        </section>
+        <section id="new-castle" class="column-split">
+          <img
+            src="images/activities/historic-new-castle.jpg"
+            large-src="images/activities/historic-new-castle-big.jpg"
+            att="Image by: JERRYE & ROY KLOTZ, M.D., CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49136.39017114798!2d-75.64776068966673!3d39.67166602152989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c701365080335f%3A0xbb678026a4665f7a!2sNew%20Castle%2C%20DE%2019720!5e0!3m2!1sen!2sus!4v1697591123988!5m2!1sen!2sus"
+          />
+          <p class="bold">Visit Historic New Castle</p>
+          <p>
+            New Castle is a historic town with an old vibe. It offers many
+            museums to check out.
+          </p>
+        </section>
+        <section id="fort-delaware" class="column-split">
+          <img
+            src="images/activities/fort-delaware.jpg"
+            large-src="images/activities/fort-delaware-big.jpg"
+            att="Image by: Shun Ho, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons. "
+            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21800.99966949411!2d-75.60359699707593!3d39.58343075701248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7056dadba22ef%3A0x970eb5c605070997!2sFort%20Delaware%20State%20Park%20and%20Pea%20Patch%20Island!5e0!3m2!1sen!2sus!4v1697591195667!5m2!1sen!2sus"
+          />
+          <p class="bold">Explore Fort Delaware</p>
+          <p>
+            Fort Delaware is located on Pea Patch Island and is a Civil-War era
+            fortress with an interesting history.
+          </p>
+        </section>
+        <section class="no-background">
+          <p id="forwards-arrow">&gt;</p>
+        </section>
+      </div>
+      <hr />
+      <h1 id="new-rec-title">New Recommendations:</h1>
+      <div id="new-recommendations">
+        <form id="new-recommendation-form">
           <div id="rows-of-cols" class="flex-container">
             <div class="col1">
               <section class="column-split flex-container">
                 <label for="name-of-location">Name of Location:</label>
-                <input type="text" id="name-of-location" required>
+                <input type="text" id="name-of-location" required />
               </section>
               <section class="column-split flex-container">
-                <label for="type-of-location">Name of Location:</label>
+                <label for="type-of-location">Type of Location:</label>
                 <select id="type-of-location" required>
                   <option value="" selected disabled></option>
-                  <option value="attraction">Attraction</option>
-                  <option value="activity">Activity</option>
+                  <option value="Attraction">Attraction</option>
+                  <option value="Activity">Activity</option>
                 </select>
               </section>
               <section class="column-split flex-container">
                 <label for="address">Address of Location:</label>
-                <input id="address" type="text" pattern="[\s\.A-Za-z0-9'\-\,]" required>
+                <input id="address" type="text" required />
               </section>
             </div>
             <div class="col1">
               <section class="column-split flex-container">
                 <label for="phone">Phone Number (if applicable):</label>
-                <input id="phone" type="tel" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}">
+                <input
+                  id="phone"
+                  type="tel"
+                  pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                />
               </section>
               <section class="column-split flex-container">
                 <label for="email">Email Address (if applicable):</label>
-                <input id="email" type="email">
+                <input id="email" type="email" />
               </section>
               <section class="column-split flex-container">
                 <div id="hours-container">
-                <label for="hours">Hours of Operation:</label>
-                  <input id="open-time" type="time">
-                  <p id="time-separator"> - </p>
-                  <input id="close-time" type="time">
+                  <label for="hours">Hours of Operation:</label>
+                  <input id="open-time" type="time" required />
+                  <p id="time-separator">-</p>
+                  <input id="close-time" type="time" />
                 </div>
               </section>
             </div>
             <div class="col1">
               <section class="column-split flex-container">
                 <label for="review">Google Review:</label>
-                <input id="review" type="number" max="5" min="1">
+                <input id="review" type="number" max="5" min="1" />
               </section>
               <section class="column-split flex-container">
                 <label for="description">Short Description:</label>
-                <input id="description" type="text">
+                <input id="description" type="text" />
               </section>
               <section class="column-split flex-container">
                 <label for="images">Images:</label>
-                <input id="images" type="file" accept="image/*">
+                <input id="images" type="file" accept="image/*" />
               </section>
             </div>
           </div>
           <div id="button-container" class="col1">
             <button id="form-submit-button" type="submit">Submit</button>
           </div>
-          <div id="submit-message-response">
-
-          </div>
+        </form>
+        <div id="new-recommendation-results"></div>
+      </div>
+    </main>
+    <footer>
+      <div id="footer-info" class="flex-container">
+        <p>Ryan Malone</p>
+        <div>
+          <a target="_blank" href="https://www.facebook.com/ryan.malonee"
+            ><img src="images/facebook-logo.png"
+          /></a>
+          <a target="_blank" href="mailto:Ryan@rpmalone.com"
+            ><img src="images/email-logo.png"
+          /></a>
         </div>
-      </main>
-      <footer>
-        <div id="footer-info" class="flex-container">
-          <p>Ryan Malone</p>
-          <div>
-            <a target="_blank" href="https://www.facebook.com/ryan.malonee"><img src="images/facebook-logo.png"></a>
-            <a target="_blank" href="mailto:Ryan@rpmalone.com"><img src="images/email-logo.png"></a>
-          </div>
-        </div>
-      </footer>
-      <script src="activity-script.js"></script>
+      </div>
+    </footer>
+    <script src="activity-script.js"></script>
   </body>
 </html>
