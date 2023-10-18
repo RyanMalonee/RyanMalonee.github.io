@@ -3,14 +3,13 @@ const displayEmailResults = async (e) => {
   const emailResults = document.getElementById("email-results");
   const result = document.createElement("p");
   let emailResponse = await getEmailResults();
+  emailResults.innerHTML = "";
   if (emailResponse.status == 200) {
-    emailResults.innerHTML = "";
     result.innerHTML = "Email Successfully Sent";
-    emailResults.appendChild(result);
+    result.style.color = "lightgreen";
   } else {
-    emailResults.innerHTML = "";
     result.innerHTML = "Sorry, your email was not sent.";
-    emailResults.appendChild(result);
+    result.style.color = "red";
   }
   emailResults.appendChild(result);
 };
@@ -23,6 +22,7 @@ const getEmailResults = async () => {
   const emailResults = document.getElementById("email-results");
   const result = document.createElement("p");
   result.innerHTML = "Sending...";
+  emailResults.innerHTML = "";
   emailResults.appendChild(result);
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -37,6 +37,7 @@ const getEmailResults = async () => {
   } catch (error) {
     console.log(error);
     result.innerHTML = "Sorry, your email failed to send.";
+    result.style.color = "red";
   }
 };
 
