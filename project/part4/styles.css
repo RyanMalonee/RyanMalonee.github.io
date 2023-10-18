@@ -145,6 +145,12 @@ p {
   padding: 10px;
   background-color: #0177B6;
   border-radius: 3px;
+  border: solid 3px lightgrey;
+}
+
+#form-submit-button:hover {
+  border: solid 3px white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #button-container{
@@ -175,7 +181,7 @@ p {
   margin-bottom: 10px;
 }
 
-#about-me-section {
+#about-me-page {
   background-color: #EFEFEF;
 }
 
@@ -262,6 +268,7 @@ p {
 
 #contact-submit-button:hover {
   border: solid 3px white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Modal Dialog */
@@ -466,6 +473,8 @@ h1 {
 
 #about-title {
   text-align: center;
+  margin: 0;
+  padding-top: 30px;
 }
 
 a {
