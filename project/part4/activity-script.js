@@ -7,8 +7,9 @@ const imageBoxContainer = () => {
   const bigImage = document.getElementById("big-image");
   const map = document.getElementById("map");
   const attribution = document.getElementById("attribution");
-  document.querySelectorAll("main img").forEach((img) => {
-    img.onclick = () => {
+  document.querySelectorAll("main section").forEach((section) => {
+    section.onclick = () => {
+      const img = section.querySelector("img");
       bigImage.src = img.getAttribute("large-src");
       map.src = img.getAttribute("map-src");
       background.classList.remove("hide");

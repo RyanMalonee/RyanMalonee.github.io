@@ -294,7 +294,6 @@ p {
 #new-rec-result-container {
   background: #0177b6;
   color: white;
-  min-width: 60%;
   max-height: 600px;
   margin: 0 auto;
   width: fit-content;
@@ -650,6 +649,9 @@ a {
     padding: 20px;
     border: 1px solid #888;
     width: fit-content;
+  }
+
+  #activities .image-container {
     min-width: 60%;
   }
 
