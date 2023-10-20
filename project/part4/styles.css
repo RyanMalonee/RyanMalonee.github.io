@@ -144,7 +144,7 @@ p {
   cursor: pointer;
 }
 
-#activities section {
+#activities section:not(.column-split) {
   cursor: pointer;
 }
 
