@@ -115,7 +115,8 @@ p {
 
 .list section.column-split {
   background: #7fa8d4;
-  overflow: hidden;
+  word-wrap: break-word;
+  overflow-y: auto;
   margin: 5px 10px 15px 10px;
   text-align: center;
 }
@@ -655,6 +656,7 @@ a {
 
   #activities .image-container {
     min-width: 60%;
+    max-width: 90%;
   }
 
   .image-container img {
