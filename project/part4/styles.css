@@ -553,7 +553,7 @@ a {
 }
 
 /* Larger Resolutions */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
   .flex-container {
     display: flex;
   }
@@ -676,7 +676,7 @@ a {
 }
 
 /* Smaller Resolutions */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .list img {
     width: 50%;
   }
