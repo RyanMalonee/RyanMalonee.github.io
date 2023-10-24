@@ -442,6 +442,15 @@ footer img {
   width: 150px;
 }
 
+#long-description {
+  width: 40%;
+  height: 75px;
+}
+
+#long-description-section {
+  justify-content: center;
+}
+
 /*Typography*/
 body {
   font-family: Arial, Helvetica, sans-serif;

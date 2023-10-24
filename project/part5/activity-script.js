@@ -73,13 +73,77 @@ const formSubmitMessage = (e) => {
   formResultContainer.appendChild(responseMessage);
 };
 
+const getActivities = async () => {
+  const url = "json/attractions.json";
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const showActivities = async () => {
+  const activities = await getActivities();
+  const attractionContainer = document.getElementById("attractions");
+  const activityList = document.getElementById("activity-list");
+
+  activities.forEach((activity) => {
+    if (activity.typeOfLocation == "Attraction") {
+      attractionContainer.insertBefore(
+        getActivityItem(activity),
+        attractionContainer.lastElementChild
+      );
+    } else {
+      activityList.append(getActivityItem(activity));
+    }
+  });
+  imageBoxContainer();
+};
+
+const getActivityItem = (activity) => {
+  const section = document.createElement("section");
+  section.classList.add("column-split");
+
+  const img = document.createElement("img");
+  img.src = activity.previewImg;
+  img.setAttribute("large-src", activity.largeImg);
+  img.setAttribute("att", activity.attribution);
+  section.append(img);
+
+  const title = document.createElement("p");
+  title.classList.add("bold");
+  title.innerHTML = activity.nameOfLocation;
+  section.append(title);
+
+  const shortDescription = document.createElement("p");
+  shortDescription.innerHTML = activity.shortDescription;
+  section.append(shortDescription);
+
+  const map = document.getElementById("map");
+  console.log(activity.longitude);
+  map.src = `https://maps.google.com/maps?q=${activity.latitude},${activity.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
+  console.log(section);
+  getActivityItemLarge(activity);
+  return section;
+};
+
+const getActivityItemLarge = (activity) => {
+  const longDescription = document.getElementById("long-description-text");
+  longDescription.innerHTML = activity.longDescription;
+  const map = document.getElementById("map");
+  console.log(activity.longitude);
+  map.src = `https://maps.google.com/maps?q=${activity.latitude},${activity.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+};
+
 const toggleHamburger = () => {
   document.getElementById("nav-items").classList.toggle("hide");
 };
 
 window.onload = () => {
   document.getElementById("hamburger").onclick = toggleHamburger;
-  imageBoxContainer();
+  showActivities();
   document.getElementById("new-recommendation-form").onsubmit =
     formSubmitMessage;
 };
