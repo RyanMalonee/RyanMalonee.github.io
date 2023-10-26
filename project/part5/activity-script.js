@@ -1,27 +1,34 @@
 // I used the in-class example for the popup images
 // and the modal in the background. I tried to make it my
 // own in the stylesheet to better suit my needs.
-const imageBoxContainer = () => {
+const imageBoxContainer = (activities) => {
   const background = document.getElementById("modal-background");
   const imageContainer = document.getElementById("image-container");
   const bigImage = document.getElementById("big-image");
   const map = document.getElementById("map");
   const attribution = document.getElementById("attribution");
-  document.querySelectorAll("main section").forEach((section) => {
-    section.onclick = () => {
-      const img = section.querySelector("img");
-      bigImage.src = img.getAttribute("large-src");
-      map.src = img.getAttribute("map-src");
-      background.classList.remove("hide");
-      imageContainer.classList.add("show-image");
-      attribution.innerHTML = img.getAttribute("att");
+  document
+    .querySelectorAll(
+      "#activities-container section:not(.no-background), #attractions section:not(.no-background)"
+    )
+    .forEach((section, index) => {
+      section.onclick = () => {
+        // to calculate the offset from the adding and removing of sections
+        const activityIndex =
+          (index + imageIndex + activities.length) % activities.length;
+        const activity = activities[activityIndex];
+        getActivityItemLarge(activity);
 
-      imageContainer.addEventListener("animationend", () => {
-        imageContainer.classList.remove("show-image");
-        imageContainer.style.opacity = 1;
-      });
-    };
-  });
+        const img = section.querySelector("img");
+        background.classList.remove("hide");
+        imageContainer.classList.add("show-image");
+
+        imageContainer.addEventListener("animationend", () => {
+          imageContainer.classList.remove("show-image");
+          imageContainer.style.opacity = 1;
+        });
+      };
+    });
 
   document.querySelector(".x-button").onclick = () => {
     background.classList.add("hide");
@@ -83,31 +90,131 @@ const getActivities = async () => {
   }
 };
 
-const showActivities = async () => {
-  const activities = await getActivities();
-  const attractionContainer = document.getElementById("attractions");
-  const activityList = document.getElementById("activity-list");
+let activities = [];
+let sectionsAdded = 0;
+let backwardsIndex = 0;
+let forwardsIndex = 4;
+let imageIndex = 0;
 
-  activities.forEach((activity) => {
+const showActivities = async () => {
+  sectionsAdded = 0;
+  activities = await getActivities();
+  const attractionContainer = document.getElementById("attractions");
+  const activitesContainer = document.getElementById("activities-container");
+  for (let i = 0; i < activities.length && sectionsAdded < 5; i++) {
+    const activity = activities[i];
+    if (activity.typeOfLocation == "Attraction") {
+      attractionContainer.insertBefore(
+        getActivityItem(activity),
+        attractionContainer.lastElementChild
+      );
+      sectionsAdded++;
+    } else {
+      activitesContainer.insertBefore(
+        getActivityItem(activity),
+        activitesContainer.lastElementChild
+      );
+      sectionsAdded++;
+    }
+  }
+
+  document.getElementById("forwards-arrow").onclick = () => {
+    forwardsIndex++;
+    backwardsIndex++;
+    if (forwardsIndex > activities.length - 1) {
+      forwardsIndex = 0;
+    }
+    if (backwardsIndex > activities.length - 1) {
+      backwardsIndex = 0;
+    }
+    const firstAttraction = attractionContainer.children[1];
+    const firstActivity = activitesContainer.children[1];
+    const activity = activities[forwardsIndex];
+    if (activity.typeOfLocation == "Attraction") {
+      attractionContainer.insertBefore(
+        getActivityItem(activity),
+        attractionContainer.lastElementChild
+      );
+      imageIndex++;
+      if (imageIndex > activities.length - 1) {
+        imageIndex = 0;
+      }
+      attractionContainer.removeChild(firstAttraction);
+    } else {
+      activitesContainer.insertBefore(
+        getActivityItem(activity),
+        activitesContainer.lastElementChild
+      );
+      imageIndex++;
+      if (imageIndex > activities.length - 1) {
+        imageIndex = 0;
+      }
+      activitesContainer.removeChild(firstActivity);
+    }
+    imageBoxContainer(activities);
+  };
+
+  document.getElementById("backwards-arrow").onclick = () => {
+    forwardsIndex--;
+    backwardsIndex--;
+    if (backwardsIndex < 0) {
+      backwardsIndex = activities.length - 1;
+    }
+    if (forwardsIndex < 0) {
+      forwardsIndex = activities.length - 1;
+    }
+
+    const lastAttraction = attractionContainer.children[5];
+    const lastActivity = activitesContainer.children[5];
+    const activity = activities[backwardsIndex];
+
+    if (activity.typeOfLocation == "Attraction") {
+      attractionContainer.insertBefore(
+        getActivityItem(activity),
+        attractionContainer.children[1]
+      );
+      imageIndex--;
+      if (imageIndex < 0) {
+        imageIndex = activities.length - 1;
+      }
+      attractionContainer.removeChild(lastAttraction);
+    } else {
+      activitesContainer.insertBefore(
+        getActivityItem(activity),
+        activitesContainer.children[1]
+      );
+      imageIndex--;
+      if (imageIndex < 0) {
+        imageIndex = activities.length - 1;
+      }
+      activitesContainer.removeChild(lastActivity);
+    }
+    imageBoxContainer(activities);
+  };
+
+  /*activities.forEach((activity) => {
     if (activity.typeOfLocation == "Attraction") {
       attractionContainer.insertBefore(
         getActivityItem(activity),
         attractionContainer.lastElementChild
       );
     } else {
-      activityList.append(getActivityItem(activity));
+      activitesContainer.insertBefore(
+        getActivityItem(activity),
+        activitesContainer.lastElementChild
+      );
     }
-  });
-  imageBoxContainer();
+  });*/
+  imageBoxContainer(activities);
 };
 
 const getActivityItem = (activity) => {
   const section = document.createElement("section");
   section.classList.add("column-split");
+  section.index = activities.indexOf(activity);
 
   const img = document.createElement("img");
   img.src = activity.previewImg;
-  img.setAttribute("large-src", activity.largeImg);
   img.setAttribute("att", activity.attribution);
   section.append(img);
 
@@ -121,20 +228,43 @@ const getActivityItem = (activity) => {
   section.append(shortDescription);
 
   const map = document.getElementById("map");
-  console.log(activity.longitude);
   map.src = `https://maps.google.com/maps?q=${activity.latitude},${activity.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
-  console.log(section);
   getActivityItemLarge(activity);
   return section;
 };
 
 const getActivityItemLarge = (activity) => {
+  const img = document.getElementById("big-image");
+  img.setAttribute("src", activity.largeImg);
+
+  const attribution = document.getElementById("attribution");
+  attribution.innerHTML = activity.attribution;
+
   const longDescription = document.getElementById("long-description-text");
   longDescription.innerHTML = activity.longDescription;
+
   const map = document.getElementById("map");
-  console.log(activity.longitude);
   map.src = `https://maps.google.com/maps?q=${activity.latitude},${activity.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
+  const hours = document.getElementById("hours-info");
+  hours.innerHTML = `Hours of Operation: ${activity.hoursOpen} - ${activity.hoursClose}`;
+
+  if (activity.phone != "" && activity.phone != null) {
+    const phone = document.getElementById("phone-info");
+    phone.innerHTML = `Phone Number: ${activity.phone}`;
+  }
+
+  if (activity.email != "" && activity.email != null) {
+    const email = document.getElementById("email-info");
+    email.innerHTML = `Email Address: ${activity.email}`;
+  }
+
+  const address = document.getElementById("address-info");
+  address.innerHTML = `Address: ${activity.address}`;
+
+  const review = document.getElementById("review-info");
+  review.innerHTML = `Review: ${activity.googleReview} / 5 Stars`;
 };
 
 const toggleHamburger = () => {

@@ -65,13 +65,10 @@
           <div class="flex-container">
             <section class="column-split">
               <h2>Information:</h2>
-              <p>Hours of Operation: 11AM-9PM</p>
-              <p>Phone Number: (302) 227-1921</p>
-              <p>
-                Address: 6 Delaware Avenue, Rehoboth Beach, Delaware 19971,
-                United States
-              </p>
-              <p>Review: 4.6 / 5</p>
+              <p id="hours-info">Hours of Operation: 11AM-9PM</p>
+              <p id="phone-info"></p>
+              <p id="address-info"></p>
+              <p id="review-info"></p>
             </section>
             <section class="column-split">
               <iframe
@@ -98,76 +95,11 @@
       </div>
       <hr />
       <h1 class="center">Activities</h1>
-      <div id="activities" class="flex-container list">
+      <div id="activities-container" class="flex-container list">
         <section class="no-background">
           <p id="backwards-arrow">&lt;</p>
         </section>
-        <div id="activity-list"></div>
-        <section id="beach-day" class="column-split">
-          <img
-            src="images/activities/rehoboth-beach.jpg"
-            large-src="images/activities/rehoboth-beach-big.jpg"
-            att="Image by: APK, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons."
-            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49803.554022915145!2d-75.1314946277514!3d38.72418823427821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b896667c7333a7%3A0x61182de5a751636a!2sRehoboth%20Beach%2C%20DE!5e0!3m2!1sen!2sus!4v1697590993541!5m2!1sen!2sus"
-          />
-          <p class="bold">Beach Day</p>
-          <p>
-            Delaware has many beautiful beaches to go to. No matter which one
-            you end up at it will be a good time.
-          </p>
-        </section>
-        <section id="parks" class="column-split">
-          <img
-            src="images/activities/capehenlopen-trail.jpg"
-            large-src="images/activities/capehenlopen-trail-big.jpg"
-            att="Image by: Nolabob, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
-            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.1957538357838!2d-75.10582822396377!3d38.78214655349602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b8b6d449da5e37%3A0xef05ecc779df7a41!2sCape%20Henlopen%20State%20Park!5e0!3m2!1sen!2sus!4v1697591029080!5m2!1sen!2sus"
-          />
-          <p class="bold">Explore the Parks</p>
-          <p>
-            In addition to beaches, Delaware has 18 state parks ready to be
-            explored!
-          </p>
-        </section>
-        <section id="shopping" class="column-split">
-          <img
-            src="images/activities/christiana-mall.jpg"
-            large-src="images/activities/christiana-mall-big.jpg"
-            att="Image by: Dough4872, CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0, via Wikimedia Commons"
-            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.731198461981!2d-75.65442882392655!3d39.67826080025382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7013dfd671915%3A0x785b04879852dede!2sChristiana%20Mall!5e0!3m2!1sen!2sus!4v1697591057298!5m2!1sen!2sus"
-          />
-          <p class="bold">Shopping Trip</p>
-          <p>
-            Delaware is one of the few states that offer no sales tax. So
-            explore the outlets or the malls to shop!
-          </p>
-        </section>
-        <section id="new-castle" class="column-split">
-          <img
-            src="images/activities/historic-new-castle.jpg"
-            large-src="images/activities/historic-new-castle-big.jpg"
-            att="Image by: JERRYE & ROY KLOTZ, M.D., CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
-            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49136.39017114798!2d-75.64776068966673!3d39.67166602152989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c701365080335f%3A0xbb678026a4665f7a!2sNew%20Castle%2C%20DE%2019720!5e0!3m2!1sen!2sus!4v1697591123988!5m2!1sen!2sus"
-          />
-          <p class="bold">Visit Historic New Castle</p>
-          <p>
-            New Castle is a historic town with an old vibe. It offers many
-            museums to check out.
-          </p>
-        </section>
-        <section id="fort-delaware" class="column-split">
-          <img
-            src="images/activities/fort-delaware.jpg"
-            large-src="images/activities/fort-delaware-big.jpg"
-            att="Image by: Shun Ho, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons. "
-            map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21800.99966949411!2d-75.60359699707593!3d39.58343075701248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7056dadba22ef%3A0x970eb5c605070997!2sFort%20Delaware%20State%20Park%20and%20Pea%20Patch%20Island!5e0!3m2!1sen!2sus!4v1697591195667!5m2!1sen!2sus"
-          />
-          <p class="bold">Explore Fort Delaware</p>
-          <p>
-            Fort Delaware is located on Pea Patch Island and is a Civil-War era
-            fortress with an interesting history.
-          </p>
-        </section>
+        <!-- New Sections will appear here -->
         <section class="no-background">
           <p id="forwards-arrow">&gt;</p>
         </section>
