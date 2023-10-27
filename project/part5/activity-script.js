@@ -19,7 +19,6 @@ const imageBoxContainer = (activities) => {
         const activity = activities[activityIndex];
         getActivityItemLarge(activity);
 
-        const img = section.querySelector("img");
         background.classList.remove("hide");
         imageContainer.classList.add("show-image");
 
@@ -119,75 +118,79 @@ const showActivities = async () => {
   }
 
   document.getElementById("forwards-arrow").onclick = () => {
-    forwardsIndex++;
-    backwardsIndex++;
-    if (forwardsIndex > activities.length - 1) {
-      forwardsIndex = 0;
-    }
-    if (backwardsIndex > activities.length - 1) {
-      backwardsIndex = 0;
-    }
-    const firstAttraction = attractionContainer.children[1];
-    const firstActivity = activitesContainer.children[1];
-    const activity = activities[forwardsIndex];
-    if (activity.typeOfLocation == "Attraction") {
-      attractionContainer.insertBefore(
-        getActivityItem(activity),
-        attractionContainer.lastElementChild
-      );
-      imageIndex++;
-      if (imageIndex > activities.length - 1) {
-        imageIndex = 0;
+    if (activities.length > 5) {
+      forwardsIndex++;
+      backwardsIndex++;
+      if (forwardsIndex > activities.length - 1) {
+        forwardsIndex = 0;
       }
-      attractionContainer.removeChild(firstAttraction);
-    } else {
-      activitesContainer.insertBefore(
-        getActivityItem(activity),
-        activitesContainer.lastElementChild
-      );
-      imageIndex++;
-      if (imageIndex > activities.length - 1) {
-        imageIndex = 0;
+      if (backwardsIndex > activities.length - 1) {
+        backwardsIndex = 0;
       }
-      activitesContainer.removeChild(firstActivity);
+      const firstAttraction = attractionContainer.children[1];
+      const firstActivity = activitesContainer.children[1];
+      const activity = activities[forwardsIndex];
+      if (activity.typeOfLocation == "Attraction") {
+        attractionContainer.insertBefore(
+          getActivityItem(activity),
+          attractionContainer.lastElementChild
+        );
+        imageIndex++;
+        if (imageIndex > activities.length - 1) {
+          imageIndex = 0;
+        }
+        attractionContainer.removeChild(firstAttraction);
+      } else {
+        activitesContainer.insertBefore(
+          getActivityItem(activity),
+          activitesContainer.lastElementChild
+        );
+        imageIndex++;
+        if (imageIndex > activities.length - 1) {
+          imageIndex = 0;
+        }
+        activitesContainer.removeChild(firstActivity);
+      }
     }
     imageBoxContainer(activities);
   };
 
   document.getElementById("backwards-arrow").onclick = () => {
-    forwardsIndex--;
-    backwardsIndex--;
-    if (backwardsIndex < 0) {
-      backwardsIndex = activities.length - 1;
-    }
-    if (forwardsIndex < 0) {
-      forwardsIndex = activities.length - 1;
-    }
-
-    const lastAttraction = attractionContainer.children[5];
-    const lastActivity = activitesContainer.children[5];
-    const activity = activities[backwardsIndex];
-
-    if (activity.typeOfLocation == "Attraction") {
-      attractionContainer.insertBefore(
-        getActivityItem(activity),
-        attractionContainer.children[1]
-      );
-      imageIndex--;
-      if (imageIndex < 0) {
-        imageIndex = activities.length - 1;
+    if (activities.length > 5) {
+      forwardsIndex--;
+      backwardsIndex--;
+      if (backwardsIndex < 0) {
+        backwardsIndex = activities.length - 1;
       }
-      attractionContainer.removeChild(lastAttraction);
-    } else {
-      activitesContainer.insertBefore(
-        getActivityItem(activity),
-        activitesContainer.children[1]
-      );
-      imageIndex--;
-      if (imageIndex < 0) {
-        imageIndex = activities.length - 1;
+      if (forwardsIndex < 0) {
+        forwardsIndex = activities.length - 1;
       }
-      activitesContainer.removeChild(lastActivity);
+
+      const lastAttraction = attractionContainer.children[5];
+      const lastActivity = activitesContainer.children[5];
+      const activity = activities[backwardsIndex];
+
+      if (activity.typeOfLocation == "Attraction") {
+        attractionContainer.insertBefore(
+          getActivityItem(activity),
+          attractionContainer.children[1]
+        );
+        imageIndex--;
+        if (imageIndex < 0) {
+          imageIndex = activities.length - 1;
+        }
+        attractionContainer.removeChild(lastAttraction);
+      } else {
+        activitesContainer.insertBefore(
+          getActivityItem(activity),
+          activitesContainer.children[1]
+        );
+        imageIndex--;
+        if (imageIndex < 0) {
+          imageIndex = activities.length - 1;
+        }
+        activitesContainer.removeChild(lastActivity);
+      }
     }
     imageBoxContainer(activities);
   };

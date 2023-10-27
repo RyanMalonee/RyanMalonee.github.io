@@ -24,10 +24,16 @@ body {
   display: none;
 }
 
+#assignment12 a {
+  display: block;
+  text-align: center;
+  padding: 3px;
+}
+
 /* Navigation */
 #main-nav ul {
   list-style-type: none;
-  background-color: #A39998;
+  background-color: #a39998;
   text-align: center;
 }
 
@@ -37,12 +43,12 @@ body {
 }
 
 #main-nav li:hover {
-  background-color: #B9AEA8;
+  background-color: #b9aea8;
   cursor: pointer;
 }
 
 #main-nav .bottom-border {
-  border-bottom: 4px solid #FF5733;
+  border-bottom: 4px solid #ff5733;
 }
 
 #nav-items {
@@ -74,7 +80,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.column h3, .column p {
+.column h3,
+.column p {
   text-align: center;
 }
 
@@ -98,7 +105,7 @@ body {
 
 #main-nav li {
   font-size: 1.1em;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .attribution {
