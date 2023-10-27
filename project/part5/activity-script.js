@@ -8,9 +8,7 @@ const imageBoxContainer = (activities) => {
   const map = document.getElementById("map");
   const attribution = document.getElementById("attribution");
   document
-    .querySelectorAll(
-      "#activities-container section:not(.no-background), #attractions section:not(.no-background)"
-    )
+    .querySelectorAll("#activities-container section:not(.no-background)")
     .forEach((section, index) => {
       section.onclick = () => {
         // to calculate the offset from the adding and removing of sections
@@ -18,6 +16,46 @@ const imageBoxContainer = (activities) => {
           (index + imageIndex + activities.length) % activities.length;
         const activity = activities[activityIndex];
         getActivityItemLarge(activity);
+
+        background.classList.remove("hide");
+        imageContainer.classList.add("show-image");
+
+        imageContainer.addEventListener("animationend", () => {
+          imageContainer.classList.remove("show-image");
+          imageContainer.style.opacity = 1;
+        });
+      };
+    });
+
+  document.querySelector(".x-button").onclick = () => {
+    background.classList.add("hide");
+    imageContainer.style.opacity = 0;
+  };
+
+  window.onclick = (event) => {
+    if (event.target == background) {
+      background.classList.add("hide");
+      imageContainer.style.opacity = 0;
+    }
+  };
+};
+
+const imageBoxContainerAttraction = (attractions) => {
+  const background = document.getElementById("modal-background");
+  const imageContainer = document.getElementById("image-container");
+  const bigImage = document.getElementById("big-image");
+  const map = document.getElementById("map");
+  const attribution = document.getElementById("attribution");
+  document
+    .querySelectorAll("#attractions section:not(.no-background)")
+    .forEach((section, index) => {
+      section.onclick = () => {
+        // to calculate the offset from the adding and removing of sections
+        const attractionIndex =
+          (index + attractionImageIndex + attractions.length) %
+          attractions.length;
+        const attraction = attractions[attractionIndex];
+        getActivityItemLarge(attraction);
 
         background.classList.remove("hide");
         imageContainer.classList.add("show-image");
@@ -80,6 +118,16 @@ const formSubmitMessage = (e) => {
 };
 
 const getActivities = async () => {
+  const url = "json/activities.json";
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getAttractions = async () => {
   const url = "json/attractions.json";
   try {
     const response = await fetch(url);
@@ -90,125 +138,165 @@ const getActivities = async () => {
 };
 
 let activities = [];
-let sectionsAdded = 0;
+let attractions = [];
+let attractionSectionsAdded = 0;
+let activitySectionsAdded = 0;
 let backwardsIndex = 0;
 let forwardsIndex = 4;
 let imageIndex = 0;
+let attractionForwardsIndex = 4;
+let attractionBackwardsIndex = 0;
+let attractionImageIndex = 0;
 
+// Activity Information/section
 const showActivities = async () => {
   sectionsAdded = 0;
   activities = await getActivities();
-  const attractionContainer = document.getElementById("attractions");
-  const activitesContainer = document.getElementById("activities-container");
-  for (let i = 0; i < activities.length && sectionsAdded < 5; i++) {
+  const activityContainer = document.getElementById("activities-container");
+  for (let i = 0; i < activities.length && activitySectionsAdded < 5; i++) {
     const activity = activities[i];
-    if (activity.typeOfLocation == "Attraction") {
-      attractionContainer.insertBefore(
-        getActivityItem(activity),
-        attractionContainer.lastElementChild
-      );
-      sectionsAdded++;
-    } else {
-      activitesContainer.insertBefore(
-        getActivityItem(activity),
-        activitesContainer.lastElementChild
-      );
-      sectionsAdded++;
-    }
+    activityContainer.insertBefore(
+      getActivityItem(activity),
+      activityContainer.lastElementChild
+    );
+    activitySectionsAdded++;
   }
+};
 
-  document.getElementById("forwards-arrow").onclick = () => {
-    if (activities.length > 5) {
-      forwardsIndex++;
-      backwardsIndex++;
-      if (forwardsIndex > activities.length - 1) {
-        forwardsIndex = 0;
-      }
-      if (backwardsIndex > activities.length - 1) {
-        backwardsIndex = 0;
-      }
-      const firstAttraction = attractionContainer.children[1];
-      const firstActivity = activitesContainer.children[1];
-      const activity = activities[forwardsIndex];
-      if (activity.typeOfLocation == "Attraction") {
-        attractionContainer.insertBefore(
-          getActivityItem(activity),
-          attractionContainer.lastElementChild
-        );
-        imageIndex++;
-        if (imageIndex > activities.length - 1) {
-          imageIndex = 0;
-        }
-        attractionContainer.removeChild(firstAttraction);
-      } else {
-        activitesContainer.insertBefore(
-          getActivityItem(activity),
-          activitesContainer.lastElementChild
-        );
-        imageIndex++;
-        if (imageIndex > activities.length - 1) {
-          imageIndex = 0;
-        }
-        activitesContainer.removeChild(firstActivity);
-      }
+document.getElementById("activity-forwards-arrow").onclick = () => {
+  const activityContainer = document.getElementById("activities-container");
+  if (activities.length > 5) {
+    forwardsIndex++;
+    backwardsIndex++;
+    if (forwardsIndex > activities.length - 1) {
+      forwardsIndex = 0;
     }
-    imageBoxContainer(activities);
-  };
-
-  document.getElementById("backwards-arrow").onclick = () => {
-    if (activities.length > 5) {
-      forwardsIndex--;
-      backwardsIndex--;
-      if (backwardsIndex < 0) {
-        backwardsIndex = activities.length - 1;
-      }
-      if (forwardsIndex < 0) {
-        forwardsIndex = activities.length - 1;
-      }
-
-      const lastAttraction = attractionContainer.children[5];
-      const lastActivity = activitesContainer.children[5];
-      const activity = activities[backwardsIndex];
-
-      if (activity.typeOfLocation == "Attraction") {
-        attractionContainer.insertBefore(
-          getActivityItem(activity),
-          attractionContainer.children[1]
-        );
-        imageIndex--;
-        if (imageIndex < 0) {
-          imageIndex = activities.length - 1;
-        }
-        attractionContainer.removeChild(lastAttraction);
-      } else {
-        activitesContainer.insertBefore(
-          getActivityItem(activity),
-          activitesContainer.children[1]
-        );
-        imageIndex--;
-        if (imageIndex < 0) {
-          imageIndex = activities.length - 1;
-        }
-        activitesContainer.removeChild(lastActivity);
-      }
+    if (backwardsIndex > activities.length - 1) {
+      backwardsIndex = 0;
     }
-    imageBoxContainer(activities);
-  };
-
-  /*activities.forEach((activity) => {
-    if (activity.typeOfLocation == "Attraction") {
-      attractionContainer.insertBefore(
-        getActivityItem(activity),
-        attractionContainer.lastElementChild
-      );
-    } else {
-      activitesContainer.insertBefore(
-        getActivityItem(activity),
-        activitesContainer.lastElementChild
-      );
+    const firstActivity = activityContainer.children[1];
+    const activity = activities[forwardsIndex];
+    activityContainer.insertBefore(
+      getActivityItem(activity),
+      activityContainer.lastElementChild
+    );
+    imageIndex++;
+    if (imageIndex > activities.length - 1) {
+      imageIndex = 0;
     }
-  });*/
+    activityContainer.removeChild(firstActivity);
+  }
   imageBoxContainer(activities);
+};
+
+document.getElementById("activity-backwards-arrow").onclick = () => {
+  const activityContainer = document.getElementById("activities-container");
+  if (activities.length > 5) {
+    forwardsIndex--;
+    backwardsIndex--;
+    if (backwardsIndex < 0) {
+      backwardsIndex = activities.length - 1;
+    }
+    if (forwardsIndex < 0) {
+      forwardsIndex = activities.length - 1;
+    }
+
+    const lastActivity = activityContainer.children[5];
+    const activity = activities[backwardsIndex];
+
+    activityContainer.insertBefore(
+      getActivityItem(activity),
+      activityContainer.children[1]
+    );
+    imageIndex--;
+    if (imageIndex < 0) {
+      imageIndex = activities.length - 1;
+    }
+    activityContainer.removeChild(lastActivity);
+  }
+  imageIndex--;
+  if (imageIndex < 0) {
+    imageIndex = activities.length - 1;
+  }
+  imageBoxContainer(activities);
+};
+
+// Attraction Information/section
+const showAttractions = async () => {
+  sectionsAdded = 0;
+  attractions = await getAttractions();
+  const attractionContainer = document.getElementById("attractions");
+  for (let i = 0; i < attractions.length && attractionSectionsAdded < 5; i++) {
+    const attraction = attractions[i];
+    attractionContainer.insertBefore(
+      getActivityItem(attraction),
+      attractionContainer.lastElementChild
+    );
+    attractionSectionsAdded++;
+  }
+};
+
+document.getElementById("forwards-arrow").onclick = () => {
+  const attractionContainer = document.getElementById("attractions");
+  if (attractions.length > 5) {
+    attractionForwardsIndex++;
+    attractionBackwardsIndex++;
+    if (attractionForwardsIndex > attractions.length - 1) {
+      attractionForwardsIndex = 0;
+    }
+    if (attractionBackwardsIndex > attractions.length - 1) {
+      attractionBackwardsIndex = 0;
+    }
+    const firstAttraction = attractionContainer.children[1];
+    const attraction = attractions[attractionForwardsIndex];
+    attractionContainer.insertBefore(
+      getActivityItem(attraction),
+      attractionContainer.lastElementChild
+    );
+    attractionImageIndex++;
+    if (attractionImageIndex > attractions.length - 1) {
+      attractionImageIndex = 0;
+    }
+    attractionContainer.removeChild(firstAttraction);
+  }
+  if (attractionImageIndex > attractions.length - 1) {
+    attractionImageIndex = 0;
+  }
+  imageBoxContainerAttraction(attractions);
+};
+
+document.getElementById("backwards-arrow").onclick = () => {
+  const attractionContainer = document.getElementById("attractions");
+  if (attractions.length > 5) {
+    attractionForwardsIndex--;
+    attractionBackwardsIndex--;
+    if (attractionBackwardsIndex < 0) {
+      attractionBackwardsIndex = attractions.length - 1;
+    }
+    if (attractionForwardsIndex < 0) {
+      attractionForwardsIndex = attractions.length - 1;
+    }
+
+    const lastAttraction = attractionContainer.children[5];
+    const attraction = attractions[attractionBackwardsIndex];
+    console.log(attraction);
+
+    attractionContainer.insertBefore(
+      getActivityItem(attraction),
+      attractionContainer.children[1]
+    );
+    attractionImageIndex--;
+    if (attractionImageIndex < 0) {
+      attractionImageIndex = attractions.length - 1;
+    }
+    attractionContainer.removeChild(lastAttraction);
+
+    attractionImageIndex--;
+    if (attractionImageIndex < 0) {
+      attractionImageIndex = attractions.length - 1;
+    }
+    imageBoxContainerAttraction(attractions);
+  }
 };
 
 const getActivityItem = (activity) => {
@@ -277,6 +365,7 @@ const toggleHamburger = () => {
 window.onload = () => {
   document.getElementById("hamburger").onclick = toggleHamburger;
   showActivities();
+  showAttractions();
   document.getElementById("new-recommendation-form").onsubmit =
     formSubmitMessage;
 };

@@ -83,5 +83,22 @@
     "googleReview": "4.5",
     "shortDescription": "A large waterpark located in Rehoboth, DE. With so much to do, the family is sure to have fun!",
     "longDescription": ""
+  },
+  {
+    "previewImg": "images/activities/water-slide.jpg",
+    "largeImg": "images/activities/water-slide-big.jpg",
+    "attribution": "Image by: Austin Kirk, CC BY 2.0, https://creativecommons.org/licenses/by/2.0/, via Flickr. Images have been cropped/resized.",
+    "nameOfLocation": "TEST",
+    "typeOfLocation": "Attraction",
+    "longitude": "-75.10380778609516",
+    "latitude": "38.711973722148706",
+    "phone": "3022278444",
+    "email": null,
+    "hoursOpen": "10:00 AM",
+    "hoursClose": "6:00 PM",
+    "address": "36944 Country Club Rd, Rehoboth Beach, DE 19971",
+    "googleReview": "4.5",
+    "shortDescription": "A large waterpark located in Rehoboth, DE. With so much to do, the family is sure to have fun!",
+    "longDescription": ""
   }
 ]
