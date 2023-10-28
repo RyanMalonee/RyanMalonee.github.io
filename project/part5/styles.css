@@ -141,7 +141,8 @@ p {
   rotate: 90deg;
 }
 
-#attractions section {
+#attractions section,
+#activities-container section {
   cursor: pointer;
 }
 

@@ -2,7 +2,7 @@
   {
     "previewImg": "images/activities/rehoboth-beach.jpg",
     "largeImg": "images/activities/rehoboth-beach-big.jpg",
-    "attribution": "Image by: APK, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons.",
+    "attribution": "Image by: APK, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons. Preview Image was Cropped.",
     "nameOfLocation": "Beach Day",
     "typeOfLocation": "Activity",
     "longitude": "-75.07585468357644",
@@ -30,7 +30,7 @@
     "hoursClose": "",
     "address": "",
     "googleReview": "",
-    "shortDescription": "",
+    "shortDescription": "In addition to beaches, Delaware has 18 state parks ready to be explored!",
     "longDescription": ""
   },
   {
@@ -47,7 +47,7 @@
     "hoursClose": "",
     "address": "",
     "googleReview": "",
-    "shortDescription": "",
+    "shortDescription": "Delaware is one of the few states that offer no sales tax. So explore the outlets or the malls to shop!",
     "longDescription": ""
   },
   {
@@ -64,7 +64,7 @@
     "hoursClose": "",
     "address": "",
     "googleReview": "",
-    "shortDescription": "",
+    "shortDescription": "New Castle is a historic town with an old vibe. It offers many museums to check out.",
     "longDescription": ""
   },
   {
@@ -81,7 +81,7 @@
     "hoursClose": "",
     "address": "",
     "googleReview": "",
-    "shortDescription": "",
+    "shortDescription": "Fort Delaware is located on Pea Patch Island and is a Civil-War era fortress with an interesting history.",
     "longDescription": ""
   },
   {

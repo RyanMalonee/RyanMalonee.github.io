@@ -161,6 +161,7 @@ const showActivities = async () => {
     );
     activitySectionsAdded++;
   }
+  imageBoxContainer(activities);
 };
 
 document.getElementById("activity-forwards-arrow").onclick = () => {
@@ -208,7 +209,7 @@ document.getElementById("activity-backwards-arrow").onclick = () => {
       getActivityItem(activity),
       activityContainer.children[1]
     );
-    imageIndex--;
+    imageIndex = backwardsIndex + 1;
     if (imageIndex < 0) {
       imageIndex = activities.length - 1;
     }
@@ -234,6 +235,7 @@ const showAttractions = async () => {
     );
     attractionSectionsAdded++;
   }
+  imageBoxContainerAttraction(attractions);
 };
 
 document.getElementById("forwards-arrow").onclick = () => {
@@ -249,6 +251,7 @@ document.getElementById("forwards-arrow").onclick = () => {
     }
     const firstAttraction = attractionContainer.children[1];
     const attraction = attractions[attractionForwardsIndex];
+
     attractionContainer.insertBefore(
       getActivityItem(attraction),
       attractionContainer.lastElementChild
@@ -285,7 +288,7 @@ document.getElementById("backwards-arrow").onclick = () => {
       getActivityItem(attraction),
       attractionContainer.children[1]
     );
-    attractionImageIndex--;
+    attractionImageIndex = attractionBackwardsIndex + 1;
     if (attractionImageIndex < 0) {
       attractionImageIndex = attractions.length - 1;
     }
