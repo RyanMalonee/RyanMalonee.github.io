@@ -344,21 +344,29 @@ const getActivityItemLarge = (activity) => {
   const hours = document.getElementById("hours-info");
   hours.innerHTML = `Hours of Operation: ${activity.hoursOpen} - ${activity.hoursClose}`;
 
+  const phone = document.getElementById("phone-info");
   if (activity.phone != "" && activity.phone != null) {
-    const phone = document.getElementById("phone-info");
     phone.innerHTML = `Phone Number: ${activity.phone}`;
+  } else {
+    phone.innerHTML = "";
   }
 
+  const email = document.getElementById("email-info");
   if (activity.email != "" && activity.email != null) {
-    const email = document.getElementById("email-info");
     email.innerHTML = `Email Address: ${activity.email}`;
+  } else {
+    email.innerHTML = "";
   }
 
   const address = document.getElementById("address-info");
   address.innerHTML = `Address: ${activity.address}`;
 
   const review = document.getElementById("review-info");
-  review.innerHTML = `Review: ${activity.googleReview} / 5 Stars`;
+  if (activity.googleReview != "" && activity.googleReview != null) {
+    review.innerHTML = `Review: ${activity.googleReview} / 5 Stars`;
+  } else {
+    review.innerHTML = "";
+  }
 };
 
 const toggleHamburger = () => {
