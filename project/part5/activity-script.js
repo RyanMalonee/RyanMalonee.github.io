@@ -80,7 +80,7 @@ const imageBoxContainerAttraction = (attractions) => {
   };
 };
 
-const formSubmitMessage = (e) => {
+const formSubmitMessage = async (e) => {
   e.preventDefault();
   const formResultContainer = document.getElementById(
     "new-recommendation-results"
@@ -90,6 +90,8 @@ const formSubmitMessage = (e) => {
 
   const name = document.getElementById("name-of-location").value;
   const type = document.getElementById("type-of-location").value;
+  const longitude = document.getElementById("longitude").value;
+  const latitude = document.getElementById("latitude").value;
   const address = document.getElementById("address").value;
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
@@ -97,11 +99,14 @@ const formSubmitMessage = (e) => {
   const closeTime = document.getElementById("close-time").value;
   const review = document.getElementById("review").value;
   const description = document.getElementById("description").value;
+  const longDescription = document.getElementById("long-description").value;
 
   responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
   <div class=flex-container> <section class="column-split">
   <p>Name: ${name}</p>
   <p>Type: ${type}</p>
+  <p>Longitude: ${longitude}</p>
+  <p>Latitude: ${latitude}</p>
   <p>Address: ${address}</p>
   </section>
   <section class="column-split">
@@ -112,9 +117,43 @@ const formSubmitMessage = (e) => {
   <section class="column-split">
   <p>Review: ${review}</p>
   <p>Description: ${description}</p>
+  <p>Long Description: ${longDescription}</p>
   </section>
   </div></div>`;
   formResultContainer.appendChild(responseMessage);
+
+  /* -- SAVED FOR WRITING TO JSON -- */
+
+  /*
+  const formData = {
+    previewImg: "https://place-hold.it/200x150",
+    largeImg: "https://place-hold.it/600x400",
+    attribution: null,
+    nameOfLocation: name,
+    typeOfLocation: type,
+    longitude: longitude,
+    latitude: latitude,
+    phone: phone,
+    email: email,
+    hoursOpen: openTime,
+    hoursClose: closeTime,
+    address: address,
+    googleReview: review,
+    shortDescription: description,
+    longDescription: longDescription,
+  };
+
+  let existingData = [];
+  if (type == "activity") {
+    existingData = await getActivities();
+  } else {
+    existingData = await getAttractions();
+  }
+  existingData.push(formData);
+  await writeToJSON(existingData);
+  showActivities();
+  showAttractions();
+  */
 };
 
 const getActivities = async () => {

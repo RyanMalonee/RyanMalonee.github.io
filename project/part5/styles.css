@@ -308,6 +308,8 @@ p {
 
 #new-rec-result-container p {
   white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 /* Modal Dialog */
