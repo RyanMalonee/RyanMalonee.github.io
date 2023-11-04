@@ -24,7 +24,7 @@ body {
   display: none;
 }
 
-#assignment12 a {
+.node a {
   display: block;
   text-align: center;
   padding: 3px;
