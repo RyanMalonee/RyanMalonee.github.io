@@ -1,64 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Dela-Where? - Things to Do While In Delaware</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-      <header>
-        <div class="flex-container">
-          <a href="#"><img src="images/delaware-state-seal.png"></a>
-          <a href="#"><h2>Dela-Where? - Things to Do While In Delaware</h2></a>
+  <head>
+    <title>Dela-Where? - Things to Do While In Delaware</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="flex-container">
+        <a href="/"><img src="images/delaware-state-seal.png" /></a>
+        <a href="/"><h2>Dela-Where? - Things to Do While In Delaware</h2></a>
+      </div>
+      <nav id="main-nav">
+        <div id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-        <nav id="main-nav">
-          <div id="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <ul id="nav-items" class="flex-container hide">
-            <a href="#"><li id="home-tab" class="bottom-border">Home</li></a>
-            <a href="discover.html"><li id="discover-tab">Discover Delaware</li></a>
-            <a href="activities.html"><li id="activities-tab">Activities & Attractions</li></a>
-            <a href="pictures.html"><li id="pictures-tab">Pictures</li></a>
-            <a href="about.html"><li id="about-tab">About Me</li></a>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <div id="slideshow-container">
-          <!-- Images in slideshow are currently input as 
+        <ul id="nav-items" class="flex-container hide">
+          <a href="/"><li id="home-tab" class="bottom-border">Home</li></a>
+          <a href="discover"><li id="discover-tab">Discover Delaware</li></a>
+          <a href="activities"
+            ><li id="activities-tab">Activities & Attractions</li></a
+          >
+          <a href="pictures"><li id="pictures-tab">Pictures</li></a>
+          <a href="about"><li id="about-tab">About Me</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="slideshow-container">
+        <!-- Images in slideshow are currently input as 
                background image in css -->
+      </div>
+      <section id="delaware-intro">
+        <div class="flex-container">
+          <div class="column">
+            <h1>Delaware</h1>
+            <p>
+              As the first state of the United States of America, Delaware
+              offers visitors a unqiue historical experiences filled with fun
+              activies and endless attractions. From the beaches, ziplining
+              locations, and many hidden wonders, Delaware and the areas
+              surrounding it are bound to make a memorable trip.
+            </p>
+            <p class="text-button">
+              Find more information about Delaware here >>
+              <a href="discover.html"
+                ><button id="discover-de-button">Discover Delaware</button></a
+              >
+            </p>
+          </div>
+          <img class="column2 center-img" src="images/delaware-wetland.jpg" />
         </div>
-        <section id="delaware-intro">
-          <div class="flex-container">
-            <div class="column">
-              <h1>Delaware</h1>
-              <p>As the first state of the United States of America, Delaware offers visitors a unqiue historical experiences filled with fun activies and endless attractions. From the beaches, ziplining locations, and many hidden wonders, Delaware and the areas surrounding it are bound to make a memorable trip.</p>
-              <p class="text-button">Find more information about Delaware here >> <a href="discover.html"><button id="discover-de-button">Discover Delaware</button></a></p>
-            </div>
-            <img class="column2 center-img" src="images/delaware-wetland.jpg">
-          </div>
-        </section>
-        <section id="navigating-the-state">
-          <div class="flex-container">
-            <img class="column2 center-img" src="images/delaware-map.png">
-            <div class="column">
-              <h1>Navigating the State</h1>
-              <p>Delaware is a very small state (only about 2.5 hours from the northern-most to southern-most points. Comprised of three different counties you can easily get anywhere you want to via car. Depending on what you're looking for, one might want to spend their time in one county over the other. New Castle County is home to the Christiana Mall and the City of Wilminton, both great places to shop with Delaware's tax free shopping. Kent County is the home of Dover, the state's capital filled with exciting history, and Sussex Country is the home of the beaches, with great views and a relaxing vibe you are destined to have fun.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer>
-        <div id="footer-info" class="flex-container">
-          <p>Ryan Malone</p>
-          <div>
-            <a target="_blank" href="https://www.facebook.com/ryan.malonee"><img src="images/facebook-logo.png"></a>
-            <a target="_blank" href="mailto:Ryan@rpmalone.com"><img src="images/email-logo.png"></a>
+      </section>
+      <section id="navigating-the-state">
+        <div class="flex-container">
+          <img class="column2 center-img" src="images/delaware-map.png" />
+          <div class="column">
+            <h1>Navigating the State</h1>
+            <p>
+              Delaware is a very small state (only about 2.5 hours from the
+              northern-most to southern-most points. Comprised of three
+              different counties you can easily get anywhere you want to via
+              car. Depending on what you're looking for, one might want to spend
+              their time in one county over the other. New Castle County is home
+              to the Christiana Mall and the City of Wilminton, both great
+              places to shop with Delaware's tax free shopping. Kent County is
+              the home of Dover, the state's capital filled with exciting
+              history, and Sussex Country is the home of the beaches, with great
+              views and a relaxing vibe you are destined to have fun.
+            </p>
           </div>
         </div>
-      </footer>
-      <script src="script.js"></script>
-    </body>
+      </section>
+    </main>
+    <footer>
+      <div id="footer-info" class="flex-container">
+        <p>Ryan Malone</p>
+        <div>
+          <a target="_blank" href="https://www.facebook.com/ryan.malonee"
+            ><img src="images/facebook-logo.png"
+          /></a>
+          <a target="_blank" href="mailto:Ryan@rpmalone.com"
+            ><img src="images/email-logo.png"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>

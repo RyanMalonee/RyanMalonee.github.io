@@ -156,7 +156,7 @@ const formSubmitMessage = async (e) => {
   */
 };
 
-const getActivities = async () => {
+/* const getActivities = async () => {
   const url = "json/activities.json";
   try {
     const response = await fetch(url);
@@ -164,13 +164,33 @@ const getActivities = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}; */
 
-const getAttractions = async () => {
+/*const getAttractions = async () => {
   const url = "json/attractions.json";
   try {
     const response = await fetch(url);
     return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};*/
+
+const getActivities = async () => {
+  try {
+    const response = await fetch("api/activities");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getAttractions = async () => {
+  try {
+    const response = await fetch("api/attractions");
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
