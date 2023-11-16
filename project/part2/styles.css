@@ -1,0 +1,520 @@
+/* Structure */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #F5F5F5;
+  z-index: 0;
+  max-width: 100%;
+}
+
+header {
+  background: #0177B6;
+}
+
+h1 {
+  padding: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.text-button {
+  overflow: auto;
+}
+
+header img {
+  margin: 10px;
+}
+
+#slideshow-container {
+  width: 100%;
+  padding-top: 400px;
+  background-image: url('images/delaware-landscape.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+img {
+  max-width: 100%;
+  min-width: 10px;
+}
+
+#contact-info .flex-container p {
+  max-width: 100%;
+}
+
+#delaware-intro p, #delaware-intro h2, #navigating-the-state p,
+#navigating-the-state h2 {
+  padding: 10px;
+}
+
+#navigating-the-state p {
+  max-width: 100%;
+}
+
+#delaware-intro button {
+  margin: 10px;
+  padding: 7px 2px;
+  background: #0177B6;
+  color: white;
+  border-radius: 1px;
+}
+
+#delaware-intro button:hover {
+  background: #959595;
+}
+
+#delaware-history, #delaware-intro, #navigating-the-state {
+  max-width: 100%;
+}
+
+#delaware-history img, #about-info img {
+  margin-bottom:1%;
+  margin-top: 1%;
+}
+
+.center-img {
+  display: block;
+  margin: 0 auto;
+}
+
+p {
+  padding: 0 10px;
+}
+
+#fun-facts, #delaware-history {
+  background: #EBF1F7;
+}
+
+#fun-facts section {
+  background: white;
+  margin: 5px 10px 15px 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+#fun-facts h1 {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.list {
+  background: #F5F5F5;
+  max-width: 100%;
+}
+
+.list section.column-split {
+  background: #7FA8D4;
+  overflow: hidden;
+  margin: 5px 10px 15px 10px;
+  text-align: center;
+}
+
+.list p {
+  text-align: center;
+  margin: 0;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.list img {
+  width: 100%;
+  max-height: 50%;
+}
+
+.no-background {
+  background: #F5F5F5;
+  margin: auto 20px;
+  display: none;
+  cursor: pointer;
+}
+
+#attractions section {
+  cursor: pointer;
+}
+
+#activities section {
+  cursor: pointer;
+}
+
+#form-submit-button {
+  width: 150px;
+  padding: 10px;
+  background-color: #0177B6;
+  border-radius: 3px;
+}
+
+#button-container{
+  text-align: center;
+  margin: auto;
+}
+
+#pictures {
+  background: #EBF1F7;
+  max-width: 100%;
+}
+
+#pictures img:not(#big-image) {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#sussex-county, #kent-county, #new-castle-county {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+#new-castle-county {
+  margin-bottom: 10px;
+}
+
+#about-me-section {
+  background-color: #EFEFEF;
+}
+
+#about-info p {
+  padding: 10px;
+}
+
+#contact-info {
+  margin: 0 20px;
+}
+
+#contact-title {
+  margin: 30px;
+}
+
+#delaware-flag {
+  max-height: 300px;
+}
+
+#rehoboth-pic {
+  max-height: 400px;
+}
+
+#navigating-the-state img {
+  min-width: 300px;
+}
+
+#about-image {
+  min-width: 400px;
+  max-height: 450px;
+}
+
+/* Modal Dialog */
+
+#modal-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 5px 0;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.image-container {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-container img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.x-button {
+  position: relative;
+  left: 97%;
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0px 5px;
+}
+
+
+.x-button:hover, .x-button:focus {
+  color: #0177B6;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.show-image {
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.hide-image {
+  animation-name: slideOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 0 10px;
+  background: #BEBEBE;
+}
+
+footer img {
+  padding: 10px;
+}
+
+/* Navigation */
+#main-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+#main-nav ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+}
+
+#main-nav li {
+  padding: 10px 0px;
+  border-bottom: 5px solid transparent;
+}
+
+#main-nav li:hover {
+  background-color: #959595;
+}
+
+#main-nav .bottom-border {
+  border-bottom: 5px solid #93D1F3;
+}
+
+#nav-items {
+  padding: 0;
+}
+
+#hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+#hamburger {
+  padding: 10px;
+}
+
+#new-recommendations .column-split label {
+  width: 150px;
+}
+
+
+/*Typography*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p:not(#image-container p) {
+  font-size: 1.1em;
+}
+
+header h2, #form-submit-button {
+  color: white;
+}
+
+#main-nav a {
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#new-recommendations div {
+  padding: 20px;
+}
+
+.inline {
+  text-align: center;
+}
+
+#about-title {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#attribution {
+  font-size: 10px;
+}
+
+#image-container p:not(#attribution){
+  font-size: 14px;
+  margin: 5px;
+}
+
+#image-contaner h2 {
+  margin: 5px;
+}
+
+/* Larger Resolutions */
+@media only screen and (min-width: 600px) {
+  .flex-container {
+    display: flex;
+  }
+  
+  #nav-items a {
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  #hamburger {
+    display: none;
+  }
+  
+  header h2 {
+    position: relative;
+    top: 15px;
+  }
+  
+  .column {
+    flex: 6;
+  }
+  
+  .column2 {
+    flex: 4;
+  }
+  
+  .column-split {
+    flex: 2;
+  }
+  
+  .column3 {
+    flex: 3;
+  }
+  
+  .column4 {
+    flex: 7;
+  }
+  
+  #fun-facts .flex-container {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .no-background {
+    display: block;
+  }
+  
+  #rows-of-cols.flex-container {
+    flex-wrap: wrap;
+  }
+  
+  .col1 .column-split{
+    flex: 1;
+    padding: 10px;
+  }
+  
+  #pictures .column-split {
+    flex-wrap: wrap;
+  }
+  
+  #footer-info{
+    justify-content: space-between;
+    padding: 2px;
+  }
+  
+  #delaware-history img, #about-info img {
+    margin-right: 2%;
+    margin-left: 5%;
+  }
+  
+  #about-info p {
+    margin-right: 10%;
+  }
+
+  #contact-info {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  #contact-info p, #contact-info img, #contact-info h3 {
+    padding-top: 17px;
+    margin: 30px 2px;
+  }
+
+  #contact-info img {
+    padding: 10px;
+  }
+
+  .image-container {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: fit-content;
+
+  }
+  
+  .image-container img {
+    max-width: fit-content;
+    display: block;
+    padding: 10px;
+    margin: auto;
+  }
+
+  #contact-info .flex-container{
+    flex-wrap: wrap;
+  }
+}
+
+/* Smaller Resolutions */
+@media only screen and (max-width: 600px) {
+ .list img {
+  width: 50%;
+ }
+}

@@ -1,0 +1,44 @@
+/* Structure */
+
+body {
+  background: antiquewhite;
+}
+
+/* Animation */
+
+#square {
+  background-color: cornflowerblue;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  position: relative;
+}
+
+.animate {
+  animation-name: anim-square;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes anim-square {
+  0% { 
+    background: cornflowerblue;
+    top: 100px;
+    opacity: 1;
+  }
+  25% { 
+    background:green;
+    top: 0px;
+    opacity: 0.5;
+  }
+  75% { 
+    background: red;
+    top: 100px;
+    opacity: 1;
+  }
+  100% { 
+    background: cornflowerblue;
+    top: 100px;
+  }
+}

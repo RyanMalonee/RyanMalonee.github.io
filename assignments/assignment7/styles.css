@@ -1,0 +1,144 @@
+/* Structure */
+:root {
+  --num: 0%;
+}
+
+body {
+  margin: 0;
+}
+#main-header {
+  background-color: antiquewhite;
+  text-align: center;
+}
+
+#main-header h1 {
+  padding: 10px;
+  margin: 0;
+}
+
+#hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+#hamburger {
+  padding: 10px;
+}
+
+#oldest-form, #fund-raising {
+  margin: 10px;
+  background-color: antiquewhite;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+  max-width: 100%;
+}
+
+.label-spacing {
+  margin-right: 5px;
+  margin-bottom: 12px;
+}
+
+.hide {
+  display: none;
+}
+
+#oldest-form label, #oldest-form input {
+  display: block;
+  margin-left: 20px;
+}
+
+#oldest-form label {
+  width: 100px;
+  text-align: right;
+  padding: 5px;
+}
+
+#compare-ages {
+  margin: 10px;
+}
+
+#oldest-form h1, #fund-raising h1, #fund-raising h3 {
+  padding-left: 10px;
+}
+
+#rectangle {
+  width: 150px;
+  height: 400px;
+  background: #fff;
+  margin: 10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#fund-raising p {
+  margin-left: 30px;
+}
+
+.hide-exercise {
+  display:none;
+}
+
+#rectangle {
+  background: linear-gradient(0deg, pink var(--num), skyblue var(--num) 100%);
+}
+
+/* Main nav */
+#main-nav ul {
+  list-style-type: none;
+  background-color: #F8F8F8;
+}
+
+#main-nav li {
+  padding: 10px 0px;
+  border-bottom: 4px solid transparent;
+  text-align: center;
+}
+
+#main-nav li:hover {
+  background-color: lightgrey;
+}
+
+#main-nav .bottom-border {
+  border-bottom: 4px solid orangered;
+}
+
+#nav-items {
+  padding: 0;
+}
+
+/*Typography*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-nav li {
+  font-size: 1.1em;
+  font-weight:bold;
+}
+
+
+/* Larger Resolutions */
+@media only screen and (min-width: 600px) {
+  .flex-container {
+    display: flex;
+  }
+  #hamburger {
+    display: none;
+  }
+  #main-nav li {
+    flex: 1;
+  }
+  #oldest-form, #fund-raising {
+    max-width: 50%;
+  }
+  .columns {
+    display: flex;
+  }
+  .hide {
+    display:flex;
+  }
+}
