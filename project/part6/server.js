@@ -64,3 +64,35 @@ const getAttractions = async () => {
     console.log(error);
   }
 };
+
+// Add item via form
+app.post("api/activities", upload.single("img"), (req, res) => {
+  const result = validateInfo(req.body);
+
+  if (result.error) {
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
+  //PICK UP HERE
+});
+
+const validateInfo = (data) => {
+  const schema = joi.object({
+    name: joi.string().required(),
+    type: joi.string().required(),
+    longitude: joi.number().required(),
+    latitude: joi.number().required(),
+    address: joi.string().required(),
+    phone: joi.string().phone().required(),
+    email: joi.string().email().required(),
+    hoursOpen: joi.string().required(),
+    hoursClose: joi.string().required(),
+    googleReview: joi.string().required(),
+    longDescription: joi.string().required(),
+    shortDescription: joi.string().required(),
+    //img: joi.string().required(),
+  });
+
+  return schema.validate(data);
+};

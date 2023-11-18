@@ -88,15 +88,21 @@
       <h1 id="new-rec-title">New Recommendations:</h1>
       <div id="new-recommendations">
         <form id="new-recommendation-form">
+          <input type="hidden" name="_id" value="-1" />
           <div id="rows-of-cols" class="flex-container">
             <div class="col1">
               <section class="column-split flex-container">
                 <label for="name-of-location">Name of Location:</label>
-                <input type="text" id="name-of-location" required />
+                <input
+                  name="nameOfLocation"
+                  type="text"
+                  id="name-of-location"
+                  required
+                />
               </section>
               <section class="column-split flex-container">
                 <label for="type-of-location">Type of Location:</label>
-                <select id="type-of-location" required>
+                <select id="type-of-location" name="typeOfLocation" required>
                   <option value="" selected disabled></option>
                   <option value="Attraction">Attraction</option>
                   <option value="Activity">Activity</option>
@@ -104,11 +110,11 @@
               </section>
               <section class="column-split flex-container">
                 <label for="longitude">Longitude of Location:</label>
-                <input id="longitude" type="text" required />
+                <input id="longitude" name="longitude" type="text" required />
               </section>
               <section class="column-split flex-container">
                 <label for="latitude">Latitude of Location:</label>
-                <input id="latitude" type="text" required />
+                <input id="latitude" name="latitude" type="text" required />
               </section>
             </div>
             <div class="col1">
@@ -116,39 +122,56 @@
                 <label for="phone">Phone Number (if applicable):</label>
                 <input
                   id="phone"
+                  name="phone"
                   type="tel"
                   pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
                 />
               </section>
               <section class="column-split flex-container">
                 <label for="email">Email Address (if applicable):</label>
-                <input id="email" type="email" />
+                <input id="email" name="email" type="email" />
               </section>
               <section class="column-split flex-container">
                 <div id="hours-container">
                   <label for="hours">Hours of Operation:</label>
-                  <input id="open-time" type="time" required />
+                  <input name="hoursOpen" id="open-time" type="time" required />
                   <p id="time-separator">-</p>
-                  <input id="close-time" type="time" required />
+                  <input
+                    name="hoursClose"
+                    id="close-time"
+                    type="time"
+                    required
+                  />
                 </div>
               </section>
               <section class="column-split flex-container">
                 <label for="address">Address of Location:</label>
-                <input id="address" type="text" required />
+                <input name="address" id="address" type="text" required />
               </section>
             </div>
             <div class="col1">
               <section class="column-split flex-container">
                 <label for="review">Google Review:</label>
-                <input id="review" type="number" max="5" min="1" />
+                <input
+                  name="googleReview"
+                  id="review"
+                  type="number"
+                  max="5"
+                  min="1"
+                />
               </section>
               <section class="column-split flex-container">
                 <label for="description">Short Description:</label>
-                <input id="description" type="text" required />
+                <input
+                  name="description"
+                  id="shortDescription"
+                  type="text"
+                  required
+                />
               </section>
               <section class="column-split flex-container">
                 <label for="images">Images:</label>
-                <input id="images" type="file" accept="image/*" />
+                <input name="img" id="images" type="file" accept="image/*" />
               </section>
             </div>
             <section
@@ -156,7 +179,12 @@
               id="long-description-section"
             >
               <label for="long-description">Long Description:</label>
-              <input id="long-description" type="textarea" required />
+              <input
+                name="longDescription"
+                id="long-description"
+                type="textarea"
+                required
+              />
             </section>
           </div>
           <div id="button-container" class="col1">

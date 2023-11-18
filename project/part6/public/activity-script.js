@@ -82,6 +82,7 @@ const imageBoxContainerAttraction = (attractions) => {
 
 const formSubmitMessage = async (e) => {
   e.preventDefault();
+  const form = document.getElementById("new-recommendation-form");
   const formResultContainer = document.getElementById(
     "new-recommendation-results"
   );
@@ -98,8 +99,29 @@ const formSubmitMessage = async (e) => {
   const openTime = document.getElementById("open-time").value;
   const closeTime = document.getElementById("close-time").value;
   const review = document.getElementById("review").value;
-  const description = document.getElementById("description").value;
+  const description = document.getElementById("shortDescription").value;
   const longDescription = document.getElementById("long-description").value;
+
+  const data = new FormData(form);
+  data.delete("img");
+  console.log(...data);
+  let response;
+
+  if (form._id.value == -1) {
+    data.delete("_id");
+    if (type == "activity") {
+      response = await fetch("api/activities", {
+        method: "POST",
+        body: data,
+      });
+    } else {
+      response = await fetch("api/attractions", {
+        method: "POST",
+        body: data,
+      });
+    }
+  } else {
+  }
 
   responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
   <div class=flex-container> <section class="column-split">
