@@ -33,7 +33,7 @@
       <!-- Used the in-class example for the modal -->
       <div id="modal-background" class="hide">
         <div id="image-container" class="image-container" style="opacity: 0">
-          <span class="x-button">&times;</span>
+          <span id="x-button" class="x-button">&times;</span>
           <div id="big-image-container-info" class="flex-container">
             <img class="column-split" id="big-image" src="" />
             <section id="attraction-info" class="column-split">
@@ -60,6 +60,7 @@
               ></iframe>
             </section>
           </div>
+          <div id="icons"></div>
         </div>
       </div>
 
@@ -172,6 +173,10 @@
               <section class="column-split flex-container">
                 <label for="images">Images:</label>
                 <input name="img" id="img" type="file" accept="image/*" />
+              </section>
+              <section class="column-split flex-container">
+                <label for="att">Attribution:</label>
+                <input name="att" id="att" type="text" />
               </section>
             </div>
             <section

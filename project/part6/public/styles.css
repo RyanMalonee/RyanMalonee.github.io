@@ -346,6 +346,16 @@ p {
   margin: auto;
 }
 
+#icons {
+  text-align: center;
+}
+
+.icon {
+  padding: 5px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
 .x-button {
   position: relative;
   left: 97%;

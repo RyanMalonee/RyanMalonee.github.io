@@ -1,9 +1,22 @@
+// Used to track indexes for the imageBoxContainer
+let activities = [];
+let attractions = [];
+let attractionSectionsAdded = 0;
+let activitySectionsAdded = 0;
+let backwardsIndex = 0;
+let forwardsIndex = 4;
+let imageIndex = 0;
+let attractionForwardsIndex = 4;
+let attractionBackwardsIndex = 0;
+let attractionImageIndex = 0;
+
 // I used the in-class example for the popup images
 // and the modal in the background. I tried to make it my
 // own in the stylesheet to better suit my needs.
 const imageBoxContainer = (activities) => {
   const background = document.getElementById("modal-background");
   const imageContainer = document.getElementById("image-container");
+  const iconContainer = document.getElementById("icons");
   const bigImage = document.getElementById("big-image");
   const map = document.getElementById("map");
   const attribution = document.getElementById("attribution");
@@ -11,6 +24,18 @@ const imageBoxContainer = (activities) => {
     .querySelectorAll("#activities-container section:not(.no-background)")
     .forEach((section, index) => {
       section.onclick = () => {
+        iconContainer.innerHTML = "";
+        const editButton = document.createElement("a");
+        editButton.innerHTML = "&#9998; ";
+        editButton.classList.add("icon");
+        editButton.id = "edit-button";
+        iconContainer.append(editButton);
+
+        const deleteButton = document.createElement("a");
+        deleteButton.innerHTML = "&#x2715;";
+        deleteButton.classList.add("icon");
+        deleteButton.id = "delete-button";
+        iconContainer.append(deleteButton);
         // to calculate the offset from the adding and removing of sections
         const activityIndex =
           (index + imageIndex + activities.length) % activities.length;
@@ -24,6 +49,18 @@ const imageBoxContainer = (activities) => {
           imageContainer.classList.remove("show-image");
           imageContainer.style.opacity = 1;
         });
+
+        editButton.onclick = (e) => {
+          e.preventDefault();
+          document.getElementById("new-rec-title").innerHTML = "Edit Activity";
+          populateEditFormActivity(activity);
+          document.getElementById("x-button").click();
+          location.href = "#new-recommendation-form";
+        };
+
+        deleteButton.onclick = (e) => {
+          e.preventDefault();
+        };
       };
     });
 
@@ -43,6 +80,7 @@ const imageBoxContainer = (activities) => {
 const imageBoxContainerAttraction = (attractions) => {
   const background = document.getElementById("modal-background");
   const imageContainer = document.getElementById("image-container");
+  const iconContainer = document.getElementById("icons");
   const bigImage = document.getElementById("big-image");
   const map = document.getElementById("map");
   const attribution = document.getElementById("attribution");
@@ -50,6 +88,20 @@ const imageBoxContainerAttraction = (attractions) => {
     .querySelectorAll("#attractions section:not(.no-background)")
     .forEach((section, index) => {
       section.onclick = () => {
+        iconContainer.innerHTML = "";
+        // Add edit and delete Button
+        const editButton = document.createElement("a");
+        editButton.innerHTML = "&#9998; ";
+        editButton.classList.add("icon");
+        editButton.id = "edit-button";
+        iconContainer.append(editButton);
+
+        const deleteButton = document.createElement("a");
+        deleteButton.innerHTML = "&#x2715;";
+        deleteButton.classList.add("icon");
+        deleteButton.id = "delete-button";
+        iconContainer.append(deleteButton);
+
         // to calculate the offset from the adding and removing of sections
         const attractionIndex =
           (index + attractionImageIndex + attractions.length) %
@@ -64,6 +116,19 @@ const imageBoxContainerAttraction = (attractions) => {
           imageContainer.classList.remove("show-image");
           imageContainer.style.opacity = 1;
         });
+
+        editButton.onclick = (e) => {
+          e.preventDefault();
+          document.getElementById("new-rec-title").innerHTML =
+            "Edit Attraction";
+          populateEditFormAttraction(attraction);
+          document.getElementById("x-button").click();
+          location.href = "#new-recommendation-form";
+        };
+
+        deleteButton.onclick = (e) => {
+          e.preventDefault();
+        };
       };
     });
 
@@ -80,6 +145,7 @@ const imageBoxContainerAttraction = (attractions) => {
   };
 };
 
+// Manages the new recommendation form
 const formSubmitMessage = async (e) => {
   e.preventDefault();
   const form = document.getElementById("new-recommendation-form");
@@ -103,14 +169,11 @@ const formSubmitMessage = async (e) => {
   const longDescription = document.getElementById("long-description").value;
 
   const data = new FormData(form);
-  console.log(...data);
   let response;
 
   if (form._id.value == -1) {
     data.delete("_id");
-    console.log(type);
     if (type == "Activity") {
-      console.log("here");
       response = await fetch("/api/activities", {
         method: "POST",
         body: data,
@@ -122,10 +185,18 @@ const formSubmitMessage = async (e) => {
       });
     }
   } else {
+    if (type == "Activity") {
+      response = await fetch(`/api/activities/${form._id.value}`, {
+        method: "PUT",
+        body: data,
+      });
+    } else {
+      response = await fetch(`/api/attractions/${form._id.value}`, {
+        method: "PUT",
+        body: data,
+      });
+    }
   }
-
-  showActivities();
-  showAttractions();
 
   responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
   <div class=flex-container> <section class="column-split">
@@ -147,28 +218,11 @@ const formSubmitMessage = async (e) => {
   </section>
   </div></div>`;
   formResultContainer.appendChild(responseMessage);
+
+  resetPage();
 };
 
-/* const getActivities = async () => {
-  const url = "json/activities.json";
-  try {
-    const response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}; */
-
-/*const getAttractions = async () => {
-  const url = "json/attractions.json";
-  try {
-    const response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
-};*/
-
+// Fetches info from server/db
 const getActivities = async () => {
   try {
     const response = await fetch("api/activities");
@@ -189,20 +243,8 @@ const getAttractions = async () => {
   }
 };
 
-let activities = [];
-let attractions = [];
-let attractionSectionsAdded = 0;
-let activitySectionsAdded = 0;
-let backwardsIndex = 0;
-let forwardsIndex = 4;
-let imageIndex = 0;
-let attractionForwardsIndex = 4;
-let attractionBackwardsIndex = 0;
-let attractionImageIndex = 0;
-
-// Activity Information/section
+// Shows activity Information/section
 const showActivities = async () => {
-  sectionsAdded = 0;
   activities = await getActivities();
   const activityContainer = document.getElementById("activities-container");
   for (let i = 0; i < activities.length && activitySectionsAdded < 5; i++) {
@@ -216,6 +258,7 @@ const showActivities = async () => {
   imageBoxContainer(activities);
 };
 
+// Activity Navigation
 document.getElementById("activity-forwards-arrow").onclick = () => {
   const activityContainer = document.getElementById("activities-container");
   if (activities.length > 5) {
@@ -274,9 +317,8 @@ document.getElementById("activity-backwards-arrow").onclick = () => {
   imageBoxContainer(activities);
 };
 
-// Attraction Information/section
+// Shows attraction Information/section
 const showAttractions = async () => {
-  sectionsAdded = 0;
   attractions = await getAttractions();
   const attractionContainer = document.getElementById("attractions");
   for (let i = 0; i < attractions.length && attractionSectionsAdded < 5; i++) {
@@ -290,6 +332,7 @@ const showAttractions = async () => {
   imageBoxContainerAttraction(attractions);
 };
 
+// Attraction Navigation
 document.getElementById("forwards-arrow").onclick = () => {
   const attractionContainer = document.getElementById("attractions");
   if (attractions.length > 5) {
@@ -334,7 +377,6 @@ document.getElementById("backwards-arrow").onclick = () => {
 
     const lastAttraction = attractionContainer.children[5];
     const attraction = attractions[attractionBackwardsIndex];
-    console.log(attraction);
 
     attractionContainer.insertBefore(
       getActivityItem(attraction),
@@ -354,6 +396,7 @@ document.getElementById("backwards-arrow").onclick = () => {
   }
 };
 
+// Manages the displaying of the summary info
 const getActivityItem = (activity) => {
   const section = document.createElement("section");
   section.classList.add("column-split");
@@ -363,8 +406,8 @@ const getActivityItem = (activity) => {
     const img = document.createElement("img");
     img.src = activity.img;
     section.append(img);
-    if (activity.attribution) {
-      img.setAttribute("att", activity.attribution);
+    if (activity.att) {
+      img.setAttribute("att", activity.att);
     }
   }
 
@@ -381,12 +424,13 @@ const getActivityItem = (activity) => {
   return section;
 };
 
+// Manages the information on click of the activity/attraction
 const getActivityItemLarge = (activity) => {
   const img = document.getElementById("big-image");
   img.setAttribute("src", activity.img);
 
   const attribution = document.getElementById("attribution");
-  attribution.innerHTML = activity.attribution;
+  attribution.innerHTML = activity.att;
 
   const longDescription = document.getElementById("long-description-text");
   longDescription.innerHTML = activity.longDescription;
@@ -420,6 +464,53 @@ const getActivityItemLarge = (activity) => {
   } else {
     review.innerHTML = "";
   }
+};
+
+const populateEditFormAttraction = (attraction) => {
+  const form = document.getElementById("new-recommendation-form");
+  form._id.value = attraction._id;
+  form.nameOfLocation.value = attraction.nameOfLocation;
+  form.typeOfLocation.value = attraction.typeOfLocation;
+  form.longitude.value = attraction.longitude;
+  form.latitude.value = attraction.latitude;
+  form.address.value = attraction.address;
+  form.phone.value = attraction.phone;
+  form.email.value = attraction.email;
+  form.hoursOpen.value = attraction.hoursOpen;
+  form.hoursClose.value = attraction.hoursClose;
+  form.review.value = attraction.googleReview;
+  form.shortDescription.value = attraction.shortDescription;
+  form.longDescription.value = attraction.longDescription;
+  form.att.value = attraction.att;
+};
+
+const populateEditFormActivity = (activity) => {
+  const form = document.getElementById("new-recommendation-form");
+  form._id.value = activity._id;
+  form.nameOfLocation.value = activity.nameOfLocation;
+  form.typeOfLocation.value = activity.typeOfLocation;
+  form.longitude.value = activity.longitude;
+  form.latitude.value = activity.latitude;
+  form.address.value = activity.address;
+  form.phone.value = activity.phone;
+  form.email.value = activity.email;
+  form.openTime.value = activity.hoursOpen;
+  form.closeTime.value = activity.hoursClose;
+  form.review.value = activity.googleReview;
+  form.shortDescription.value = activity.shortDescription;
+  form.longDescription.value = activity.longDescription;
+  form.att.value = activity.att;
+};
+
+const resetForm = () => {
+  document.getElementById("new-recommendation-form").reset();
+  document.getElementById("new-rec-title").innerHTML = "New Recommendation";
+  document.getElementById("new-recommendation-form")._id.value = -1;
+};
+
+const resetPage = () => {
+  resetForm();
+  location.href = "/activities";
 };
 
 const toggleHamburger = () => {

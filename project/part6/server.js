@@ -35,7 +35,7 @@ const activitySchema = new mongoose.Schema({
   googleReview: String,
   longDescription: String,
   shortDescription: String,
-  attribution: String,
+  att: String,
   img: String,
 });
 
@@ -54,7 +54,7 @@ const attractionSchema = new mongoose.Schema({
   googleReview: String,
   longDescription: String,
   shortDescription: String,
-  attribution: String,
+  att: String,
   img: String,
 });
 
@@ -121,7 +121,7 @@ const getAttraction = async (res, id) => {
   res.send(attraction);
 };
 
-// Add item via form
+// Adds item via form
 app.post("/api/activities", upload.single("img"), (req, res) => {
   const result = validateInfo(req.body);
   if (result.error) {
@@ -142,7 +142,7 @@ app.post("/api/activities", upload.single("img"), (req, res) => {
     googleReview: req.body.googleReview,
     longDescription: req.body.longDescription,
     shortDescription: req.body.shortDescription,
-    attribution: "",
+    att: req.body.att,
   });
 
   if (req.file) {
@@ -164,8 +164,6 @@ app.post("/api/attractions", upload.single("img"), (req, res) => {
     return;
   }
 
-  console.log(req.body);
-
   const attraction = new Attraction({
     nameOfLocation: req.body.nameOfLocation,
     typeOfLocation: req.body.typeOfLocation,
@@ -179,7 +177,7 @@ app.post("/api/attractions", upload.single("img"), (req, res) => {
     googleReview: req.body.googleReview,
     longDescription: req.body.longDescription,
     shortDescription: req.body.shortDescription,
-    attribution: "",
+    att: req.body.att,
   });
 
   if (req.file) {
@@ -194,8 +192,80 @@ const createAttraction = async (res, attraction) => {
   res.send(result);
 };
 
+app.put("/api/activities/:id", upload.single("img"), (req, res) => {
+  const result = validateInfo(req.body);
+  if (result.error) {
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
+  updateActivity(req, res);
+});
+
+const updateActivity = async (req, res) => {
+  let updates = {
+    nameOfLocation: req.body.nameOfLocation,
+    typeOfLocation: req.body.typeOfLocation,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    address: req.body.address,
+    phone: req.body.phone,
+    email: req.body.email,
+    hoursOpen: req.body.hoursOpen,
+    hoursClose: req.body.hoursClose,
+    googleReview: req.body.googleReview,
+    longDescription: req.body.longDescription,
+    shortDescription: req.body.shortDescription,
+    att: req.body.att,
+  };
+
+  if (req.file) {
+    updates.img = "images/activities/" + req.file.filename;
+  }
+
+  const result = await Activity.updateOne({ _id: req.params.id }, updates);
+  res.send(result);
+};
+
+app.put("/api/attractions/:id", upload.single("img"), (req, res) => {
+  const result = validateInfo(req.body);
+  if (result.error) {
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
+  updateAttraction(req, res);
+});
+
+const updateAttraction = async (req, res) => {
+  let updates = {
+    nameOfLocation: req.body.nameOfLocation,
+    typeOfLocation: req.body.typeOfLocation,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    address: req.body.address,
+    phone: req.body.phone,
+    email: req.body.email,
+    hoursOpen: req.body.hoursOpen,
+    hoursClose: req.body.hoursClose,
+    googleReview: req.body.googleReview,
+    longDescription: req.body.longDescription,
+    shortDescription: req.body.shortDescription,
+    att: req.body.att,
+  };
+
+  if (req.file) {
+    updates.img = "images/activities/" + req.file.filename;
+  }
+
+  const result = await Attraction.updateOne({ _id: req.params.id }, updates);
+  res.send(result);
+};
+
+// Schema validation using JOI
 const validateInfo = (data) => {
   const schema = joi.object({
+    _id: joi.allow(""),
     nameOfLocation: joi.string().required(),
     typeOfLocation: joi.string().required(),
     longitude: joi.number().required(),
@@ -208,7 +278,7 @@ const validateInfo = (data) => {
     googleReview: joi.string().required(),
     longDescription: joi.string().required(),
     shortDescription: joi.string().required(),
-    attribution: joi.allow(""),
+    att: joi.allow(""),
     img: joi.allow(""),
   });
 
