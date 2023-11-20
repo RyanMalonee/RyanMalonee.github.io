@@ -103,25 +103,29 @@ const formSubmitMessage = async (e) => {
   const longDescription = document.getElementById("long-description").value;
 
   const data = new FormData(form);
-  data.delete("img");
   console.log(...data);
   let response;
 
   if (form._id.value == -1) {
     data.delete("_id");
-    if (type == "activity") {
-      response = await fetch("api/activities", {
+    console.log(type);
+    if (type == "Activity") {
+      console.log("here");
+      response = await fetch("/api/activities", {
         method: "POST",
         body: data,
       });
     } else {
-      response = await fetch("api/attractions", {
+      response = await fetch("/api/attractions", {
         method: "POST",
         body: data,
       });
     }
   } else {
   }
+
+  showActivities();
+  showAttractions();
 
   responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
   <div class=flex-container> <section class="column-split">
@@ -143,39 +147,6 @@ const formSubmitMessage = async (e) => {
   </section>
   </div></div>`;
   formResultContainer.appendChild(responseMessage);
-
-  /* -- SAVED FOR WRITING TO JSON -- */
-
-  /*
-  const formData = {
-    previewImg: "https://place-hold.it/200x150",
-    largeImg: "https://place-hold.it/600x400",
-    attribution: null,
-    nameOfLocation: name,
-    typeOfLocation: type,
-    longitude: longitude,
-    latitude: latitude,
-    phone: phone,
-    email: email,
-    hoursOpen: openTime,
-    hoursClose: closeTime,
-    address: address,
-    googleReview: review,
-    shortDescription: description,
-    longDescription: longDescription,
-  };
-
-  let existingData = [];
-  if (type == "activity") {
-    existingData = await getActivities();
-  } else {
-    existingData = await getAttractions();
-  }
-  existingData.push(formData);
-  await writeToJSON(existingData);
-  showActivities();
-  showAttractions();
-  */
 };
 
 /* const getActivities = async () => {
@@ -388,10 +359,14 @@ const getActivityItem = (activity) => {
   section.classList.add("column-split");
   section.index = activities.indexOf(activity);
 
-  const img = document.createElement("img");
-  img.src = activity.previewImg;
-  img.setAttribute("att", activity.attribution);
-  section.append(img);
+  if (activity.img) {
+    const img = document.createElement("img");
+    img.src = activity.img;
+    section.append(img);
+    if (activity.attribution) {
+      img.setAttribute("att", activity.attribution);
+    }
+  }
 
   const title = document.createElement("p");
   title.classList.add("bold");
@@ -402,16 +377,13 @@ const getActivityItem = (activity) => {
   shortDescription.innerHTML = activity.shortDescription;
   section.append(shortDescription);
 
-  const map = document.getElementById("map");
-  map.src = `https://maps.google.com/maps?q=${activity.latitude},${activity.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
-
   getActivityItemLarge(activity);
   return section;
 };
 
 const getActivityItemLarge = (activity) => {
   const img = document.getElementById("big-image");
-  img.setAttribute("src", activity.largeImg);
+  img.setAttribute("src", activity.img);
 
   const attribution = document.getElementById("attribution");
   attribution.innerHTML = activity.attribution;

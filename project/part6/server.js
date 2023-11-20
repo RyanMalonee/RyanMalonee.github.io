@@ -5,12 +5,60 @@ const multer = require("multer");
 app.use(express.static("public"));
 app.use(express.json());
 const cors = require("cors");
+const mongoose = require("mongoose");
 app.use(cors());
-const upload = multer({ dest: __dirname + "/public/images" });
+const upload = multer({ dest: __dirname + "/public/images/activities" });
 
 app.listen(3000, () => {
   console.log("Listening");
 });
+
+mongoose
+  .connect("mongodb://localhost/activities")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log("Couldn't connect to MongoDB", error);
+  });
+
+const activitySchema = new mongoose.Schema({
+  nameOfLocation: String,
+  typeOfLocation: String,
+  longitude: Number,
+  latitude: Number,
+  address: String,
+  phone: String,
+  email: String,
+  hoursOpen: String,
+  hoursClose: String,
+  googleReview: String,
+  longDescription: String,
+  shortDescription: String,
+  attribution: String,
+  img: String,
+});
+
+const Activity = mongoose.model("activity", activitySchema);
+
+const attractionSchema = new mongoose.Schema({
+  nameOfLocation: String,
+  typeOfLocation: String,
+  longitude: Number,
+  latitude: Number,
+  address: String,
+  phone: String,
+  email: String,
+  hoursOpen: String,
+  hoursClose: String,
+  googleReview: String,
+  longDescription: String,
+  shortDescription: String,
+  attribution: String,
+  img: String,
+});
+
+const Attraction = mongoose.model("attraction", attractionSchema);
 
 // Navigation
 app.get("/", (req, res) => {
@@ -33,65 +81,135 @@ app.get("/about", (req, res) => {
   res.sendFile(__dirname + "/about.html");
 });
 
-// JSON data
-
+// Database Management
 app.get("/api/activities", async (req, res) => {
-  const activities = await getActivities();
-  res.send(activities);
+  getActivities(res);
 });
 
-const getActivities = async () => {
-  const url = "http://localhost:3000/json/activities.json";
-  try {
-    const response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
+const getActivities = async (res) => {
+  const activities = await Activity.find();
+  res.send(activities);
 };
 
 app.get("/api/attractions", async (req, res) => {
-  const attractions = await getAttractions();
-  res.send(attractions);
+  getAttractions(res);
 });
 
-const getAttractions = async () => {
-  const url = "http://localhost:3000/json/attractions.json";
-  try {
-    const response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.log(error);
-  }
+const getAttractions = async (res) => {
+  const attractions = await Attraction.find();
+  res.send(attractions);
+};
+
+/*
+ * Find items by ID
+ */
+app.get("/api/activities/:id", async (req, res) => {
+  getActivity(res, req.params.id);
+});
+
+const getActivity = async (res, id) => {
+  const activity = await Activity.findOne({ _id: id });
+  res.send(activity);
+};
+
+app.get("/api/attractions/:id", async (req, res) => {
+  getAttraction(res, req.params.id);
+});
+
+const getAttraction = async (res, id) => {
+  const attraction = await Attraction.findOne({ _id: id });
+  res.send(attraction);
 };
 
 // Add item via form
-app.post("api/activities", upload.single("img"), (req, res) => {
+app.post("/api/activities", upload.single("img"), (req, res) => {
   const result = validateInfo(req.body);
-
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
     return;
   }
 
-  //PICK UP HERE
+  const activity = new Activity({
+    nameOfLocation: req.body.nameOfLocation,
+    typeOfLocation: req.body.typeOfLocation,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    address: req.body.address,
+    phone: req.body.phone,
+    email: req.body.email,
+    hoursOpen: req.body.hoursOpen,
+    hoursClose: req.body.hoursClose,
+    googleReview: req.body.googleReview,
+    longDescription: req.body.longDescription,
+    shortDescription: req.body.shortDescription,
+    attribution: "",
+  });
+
+  if (req.file) {
+    activity.img = "images/activities/" + req.file.filename;
+  }
+
+  createActivity(res, activity);
 });
+
+const createActivity = async (res, activity) => {
+  const result = await activity.save();
+  res.send(result);
+};
+
+app.post("/api/attractions", upload.single("img"), (req, res) => {
+  const result = validateInfo(req.body);
+  if (result.error) {
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
+  console.log(req.body);
+
+  const attraction = new Attraction({
+    nameOfLocation: req.body.nameOfLocation,
+    typeOfLocation: req.body.typeOfLocation,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    address: req.body.address,
+    phone: req.body.phone,
+    email: req.body.email,
+    hoursOpen: req.body.hoursOpen,
+    hoursClose: req.body.hoursClose,
+    googleReview: req.body.googleReview,
+    longDescription: req.body.longDescription,
+    shortDescription: req.body.shortDescription,
+    attribution: "",
+  });
+
+  if (req.file) {
+    attraction.img = "images/activities/" + req.file.filename;
+  }
+
+  createAttraction(res, attraction);
+});
+
+const createAttraction = async (res, attraction) => {
+  const result = await attraction.save();
+  res.send(result);
+};
 
 const validateInfo = (data) => {
   const schema = joi.object({
-    name: joi.string().required(),
-    type: joi.string().required(),
+    nameOfLocation: joi.string().required(),
+    typeOfLocation: joi.string().required(),
     longitude: joi.number().required(),
     latitude: joi.number().required(),
     address: joi.string().required(),
-    phone: joi.string().phone().required(),
+    phone: joi.string().required(),
     email: joi.string().email().required(),
     hoursOpen: joi.string().required(),
     hoursClose: joi.string().required(),
     googleReview: joi.string().required(),
     longDescription: joi.string().required(),
     shortDescription: joi.string().required(),
-    //img: joi.string().required(),
+    attribution: joi.allow(""),
+    img: joi.allow(""),
   });
 
   return schema.validate(data);
