@@ -60,6 +60,7 @@ const imageBoxContainer = (activities) => {
 
         deleteButton.onclick = (e) => {
           e.preventDefault();
+          deleteConfirmation(activity);
         };
       };
     });
@@ -128,6 +129,7 @@ const imageBoxContainerAttraction = (attractions) => {
 
         deleteButton.onclick = (e) => {
           e.preventDefault();
+          deleteConfirmation(attraction);
         };
       };
     });
@@ -198,7 +200,11 @@ const formSubmitMessage = async (e) => {
     }
   }
 
-  responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
+  if (response.status != 200) {
+    responseMessage.innerHTML = "Sorry, your submission failed.";
+    formResultContainer.appendChild(responseMessage);
+  } else {
+    responseMessage.innerHTML = `<div id="new-rec-result-container"> <h3>Thank you for your submission!</h3> <h4>Information:</h4>
   <div class=flex-container> <section class="column-split">
   <p>Name: ${name}</p>
   <p>Type: ${type}</p>
@@ -217,8 +223,70 @@ const formSubmitMessage = async (e) => {
   <p>Long Description: ${longDescription}</p>
   </section>
   </div></div>`;
-  formResultContainer.appendChild(responseMessage);
+    formResultContainer.appendChild(responseMessage);
+  }
 
+  setTimeout(() => {
+    formResultContainer.innerHTML = "";
+    resetPage();
+  }, 1200);
+};
+
+const deleteConfirmation = async (activity) => {
+  const panel = document.getElementById("delete-confirmation");
+  panel.innerHTML = "";
+
+  const h2 = document.createElement("h2");
+  h2.innerHTML = `Are you sure you want to delete ${activity.nameOfLocation}?`;
+  panel.append(h2);
+
+  const yes = document.createElement("button");
+  yes.innerHTML = "Yes";
+  panel.append(yes);
+
+  const no = document.createElement("button");
+  no.innerHTML = "No";
+  panel.append(no);
+
+  panel.classList.remove("hide-image");
+  panel.classList.remove("hide");
+  panel.classList.add("show-image");
+
+  yes.onclick = () => {
+    deleteActivity(activity);
+    panel.classList.remove("show-image");
+    panel.classList.add("hide-image");
+    setTimeout(() => {
+      panel.classList.add("hide");
+    }, 500);
+  };
+
+  no.onclick = () => {
+    panel.classList.remove("show-image");
+    panel.classList.add("hide-image");
+    setTimeout(() => {
+      panel.classList.add("hide");
+    }, 500);
+  };
+};
+
+// Deletes activities or Attractions from Database
+deleteActivity = async (activity) => {
+  if (activity.typeOfLocation == "Activity") {
+    await fetch(`/api/activities/${activity._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
+  } else {
+    await fetch(`/api/attractions/${activity._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    });
+  }
   resetPage();
 };
 

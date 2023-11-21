@@ -192,6 +192,7 @@ const createAttraction = async (res, attraction) => {
   res.send(result);
 };
 
+// Edit item via form
 app.put("/api/activities/:id", upload.single("img"), (req, res) => {
   const result = validateInfo(req.body);
   if (result.error) {
@@ -262,6 +263,25 @@ const updateAttraction = async (req, res) => {
   res.send(result);
 };
 
+// Delete Items from the database
+app.delete("/api/activities/:id", (req, res) => {
+  deleteActivity(res, req.params.id);
+});
+
+const deleteActivity = async (res, id) => {
+  const activity = await Activity.findByIdAndDelete(id);
+  res.send(activity);
+};
+
+app.delete("/api/attractions/:id", (req, res) => {
+  deleteAttraction(res, req.params.id);
+});
+
+const deleteAttraction = async (res, id) => {
+  const attraction = await Attraction.findByIdAndDelete(id);
+  res.send(attraction);
+};
+
 // Schema validation using JOI
 const validateInfo = (data) => {
   const schema = joi.object({
@@ -271,8 +291,8 @@ const validateInfo = (data) => {
     longitude: joi.number().required(),
     latitude: joi.number().required(),
     address: joi.string().required(),
-    phone: joi.string().required(),
-    email: joi.string().email().required(),
+    phone: joi.string().allow(""),
+    email: joi.string().email().allow(""),
     hoursOpen: joi.string().required(),
     hoursClose: joi.string().required(),
     googleReview: joi.string().required(),
