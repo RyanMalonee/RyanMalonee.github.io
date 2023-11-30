@@ -199,7 +199,7 @@ const formSubmitMessage = async (e) => {
       });
     }
   }
-
+  console.log(response.status);
   if (response.status != 200) {
     responseMessage.innerHTML = "Sorry, your submission failed.";
     formResultContainer.appendChild(responseMessage);
@@ -224,12 +224,11 @@ const formSubmitMessage = async (e) => {
   </section>
   </div></div>`;
     formResultContainer.appendChild(responseMessage);
+    setTimeout(() => {
+      formResultContainer.innerHTML = "";
+      resetPage();
+    }, 2000);
   }
-
-  setTimeout(() => {
-    formResultContainer.innerHTML = "";
-    resetPage();
-  }, 2000);
 };
 
 const deleteConfirmation = async (activity) => {
