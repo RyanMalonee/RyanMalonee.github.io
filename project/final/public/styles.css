@@ -1,5 +1,6 @@
 :root {
   --background: #0177b6;
+  --light-blue: #ebf1f6;
 }
 
 /* Structure */
@@ -79,7 +80,6 @@ img {
   max-width: 100%;
 }
 
-#delaware-history img,
 #about-info img {
   margin-bottom: 1%;
   margin-top: 1%;
@@ -95,7 +95,8 @@ p {
 }
 
 #fun-facts,
-#delaware-history {
+#delaware-history,
+#activitiesAndAttractions {
   background: #ebf1f7;
 }
 
@@ -143,6 +144,7 @@ p {
   cursor: pointer;
   background-color: transparent;
   rotate: 90deg;
+  font-size: 1.5em;
 }
 
 #attractions section,
@@ -250,6 +252,10 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 30px;
+}
+
+#delaware-intro .column {
+  background-color: var(--light-blue);
 }
 
 /* Contact Form Styling */
@@ -471,7 +477,7 @@ footer img {
 }
 
 #main-nav li:hover {
-  background-color: #959595;
+  color: lightgrey;
 }
 
 #main-nav .bottom-border {
@@ -684,7 +690,6 @@ a {
     padding: 2px;
   }
 
-  #delaware-history img,
   #about-info img {
     margin-right: 2%;
     margin-left: 5%;

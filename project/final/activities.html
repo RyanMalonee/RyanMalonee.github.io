@@ -4,7 +4,7 @@
     <title>Dela-Where? - Activities & Attractions</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="activitiesAndAttractions">
     <header>
       <div class="flex-container">
         <a href="/"><img src="images/delaware-state-seal.png" /></a>
@@ -111,11 +111,23 @@
               </section>
               <section class="column-split flex-container">
                 <label for="longitude">Longitude of Location:</label>
-                <input id="longitude" name="longitude" type="text" required />
+                <input
+                  id="longitude"
+                  name="longitude"
+                  type="text"
+                  minlength="7"
+                  required
+                />
               </section>
               <section class="column-split flex-container">
                 <label for="latitude">Latitude of Location:</label>
-                <input id="latitude" name="latitude" type="text" required />
+                <input
+                  id="latitude"
+                  name="latitude"
+                  type="text"
+                  minlength="7"
+                  required
+                />
               </section>
             </div>
             <div class="col1">

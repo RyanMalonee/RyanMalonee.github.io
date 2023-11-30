@@ -299,14 +299,17 @@ const validateInfo = (data) => {
     _id: joi.allow(""),
     nameOfLocation: joi.string().required(),
     typeOfLocation: joi.string().required(),
-    longitude: joi.number().required(),
+    longitude: joi.number().min(7).required(),
     latitude: joi.number().required(),
     address: joi.string().required(),
-    phone: joi.string().allow(""),
+    phone: joi
+      .string()
+      .pattern(/^[0-9]{3}-?[0-9]{3}-?[0-9]{4}$/)
+      .allow(""),
     email: joi.string().email().allow(""),
     hoursOpen: joi.string().required(),
     hoursClose: joi.string().required(),
-    googleReview: joi.string().required(),
+    googleReview: joi.number().min(0).max(5),
     longDescription: joi.string().required(),
     shortDescription: joi.string().required(),
     att: joi.allow(""),
