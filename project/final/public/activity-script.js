@@ -561,8 +561,8 @@ const populateEditFormActivity = (activity) => {
   form.address.value = activity.address;
   form.phone.value = activity.phone;
   form.email.value = activity.email;
-  form.openTime.value = activity.hoursOpen;
-  form.closeTime.value = activity.hoursClose;
+  form.hoursOpen.value = activity.hoursOpen;
+  form.hoursClose.value = activity.hoursClose;
   form.review.value = activity.googleReview;
   form.shortDescription.value = activity.shortDescription;
   form.longDescription.value = activity.longDescription;
