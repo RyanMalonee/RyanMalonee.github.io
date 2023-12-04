@@ -114,7 +114,6 @@ p {
 }
 
 .list {
-  background: #f5f5f5;
   max-width: 100%;
 }
 
@@ -139,10 +138,8 @@ p {
 }
 
 .no-background {
-  background: #f5f5f5;
   margin: auto 20px;
   cursor: pointer;
-  background-color: transparent;
   rotate: 90deg;
   font-size: 1.5em;
 }
