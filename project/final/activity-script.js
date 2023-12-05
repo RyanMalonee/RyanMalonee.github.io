@@ -512,7 +512,7 @@ const getActivityItem = (activity) => {
 // Manages the information on click of the activity/attraction
 const getActivityItemLarge = (activity) => {
   const img = document.getElementById("big-image");
-  img.setAttribute("src", activity.img);
+  img.setAttribute("src", "https://dela-where.onrender.com/" + activity.img);
 
   const attribution = document.getElementById("attribution");
   attribution.innerHTML = activity.att;
