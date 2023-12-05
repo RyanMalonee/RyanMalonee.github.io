@@ -291,7 +291,9 @@ deleteActivity = async (activity) => {
 // Fetches info from server/db
 const getActivities = async () => {
   try {
-    const response = await fetch("api/activities");
+    const response = await fetch(
+      "https://dela-where.onrender.com/api/activities"
+    );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -301,7 +303,9 @@ const getActivities = async () => {
 
 const getAttractions = async () => {
   try {
-    const response = await fetch("api/attractions");
+    const response = await fetch(
+      "https://dela-where.onrender.com/api/attractions"
+    );
     const data = await response.json();
     return data;
   } catch (error) {
