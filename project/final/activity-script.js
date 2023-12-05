@@ -176,27 +176,36 @@ const formSubmitMessage = async (e) => {
   if (form._id.value == -1) {
     data.delete("_id");
     if (type == "Activity") {
-      response = await fetch("/api/activities", {
+      response = await fetch("https://dela-where.onrender.com/api/activities", {
         method: "POST",
         body: data,
       });
     } else {
-      response = await fetch("/api/attractions", {
-        method: "POST",
-        body: data,
-      });
+      response = await fetch(
+        "https://dela-where.onrender.com/api/attractions",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
     }
   } else {
     if (type == "Activity") {
-      response = await fetch(`/api/activities/${form._id.value}`, {
-        method: "PUT",
-        body: data,
-      });
+      response = await fetch(
+        `https://dela-where.onrender.com/api/activities/${form._id.value}`,
+        {
+          method: "PUT",
+          body: data,
+        }
+      );
     } else {
-      response = await fetch(`/api/attractions/${form._id.value}`, {
-        method: "PUT",
-        body: data,
-      });
+      response = await fetch(
+        `https://dela-where.onrender.com/api/attractions/${form._id.value}`,
+        {
+          method: "PUT",
+          body: data,
+        }
+      );
     }
   }
   if (response.status != 200) {
@@ -271,19 +280,25 @@ const deleteConfirmation = async (activity) => {
 // Deletes activities or Attractions from Database
 deleteActivity = async (activity) => {
   if (activity.typeOfLocation == "Activity") {
-    await fetch(`/api/activities/${activity._id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    });
+    await fetch(
+      `https://dela-where.onrender.com/api/activities/${activity._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      }
+    );
   } else {
-    await fetch(`/api/attractions/${activity._id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    });
+    await fetch(
+      `https://dela-where.onrender.com/api/attractions/${activity._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      }
+    );
   }
   resetPage();
 };
@@ -580,7 +595,7 @@ const resetForm = () => {
 
 const resetPage = () => {
   resetForm();
-  location.href = "/activities";
+  location.href = "activities.html";
 };
 
 const toggleHamburger = () => {
