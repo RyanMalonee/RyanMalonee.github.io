@@ -291,9 +291,7 @@ deleteActivity = async (activity) => {
 // Fetches info from server/db
 const getActivities = async () => {
   try {
-    const response = await fetch(
-      "https://dela-where.onrender.com/api/activities"
-    );
+    const response = await fetch("api/activities");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -303,9 +301,7 @@ const getActivities = async () => {
 
 const getAttractions = async () => {
   try {
-    const response = await fetch(
-      "https://dela-where.onrender.com/api/attractions"
-    );
+    const response = await fetch("api/attractions");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -497,7 +493,7 @@ const getActivityItem = (activity) => {
 // Manages the information on click of the activity/attraction
 const getActivityItemLarge = (activity) => {
   const img = document.getElementById("big-image");
-  img.setAttribute("src", "https://dela-where.onrender.com/" + activity.img);
+  img.setAttribute("src", activity.img);
 
   const attribution = document.getElementById("attribution");
   attribution.innerHTML = activity.att;

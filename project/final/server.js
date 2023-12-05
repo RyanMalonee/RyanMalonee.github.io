@@ -7,11 +7,20 @@ app.use(express.json());
 const cors = require("cors");
 const mongoose = require("mongoose");
 app.use(cors());
-const upload = multer({ dest: __dirname + "public/images/activities" });
+const upload = multer({ dest: __dirname + "/public/images/activities" });
 
 app.listen(3000, () => {
   console.log("Listening");
 });
+
+/*mongoose
+  .connect("mongodb://localhost/activities")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log("Couldn't connect to MongoDB", error);
+  });*/
 
 mongoose
   .connect(
@@ -61,6 +70,27 @@ const attractionSchema = new mongoose.Schema({
 });
 
 const Attraction = mongoose.model("attraction", attractionSchema);
+
+// Navigation
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.get("/discover", (req, res) => {
+  res.sendFile(__dirname + "/discover.html");
+});
+
+app.get("/activities", (req, res) => {
+  res.sendFile(__dirname + "/activities.html");
+});
+
+app.get("/pictures", (req, res) => {
+  res.sendFile(__dirname + "/pictures.html");
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(__dirname + "/about.html");
+});
 
 // Database Management
 app.get("/api/activities", async (req, res) => {
